@@ -8,6 +8,7 @@ import { OwnerPageRoutingModule } from './owner-routing.module';
 import { OwnerPage } from './owner.page';
 import { LogoComponentModule } from '../../../shared/logo/logo.module';
 import { DropdownHomeComponent } from '../../../components/dropdown-home/dropdown-home.component';
+import { ModalRegisterPropertyComponent } from '../../../modals/modal-register-property/modal-register-property.component';
 
 @NgModule({
     imports: [
@@ -20,6 +21,10 @@ import { DropdownHomeComponent } from '../../../components/dropdown-home/dropdow
     declarations: [
         OwnerPage,
         DropdownHomeComponent,
+        ModalRegisterPropertyComponent,
+    ],
+    entryComponents: [
+        ModalRegisterPropertyComponent,
     ]
 })
 export class OwnerPageModule {
