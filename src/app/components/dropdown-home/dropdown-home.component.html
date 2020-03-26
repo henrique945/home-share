@@ -1,12 +1,17 @@
 <div class="dropdown-container">
-  <div class="header" (click)="onChangeDropdownState()">
-    <img [src]="property.imageUrl">
-    <span>{{property.description}}</span>
-    <ion-icon name="arrow-down"></ion-icon>
-  </div>
-  <div class="info" *ngIf="isOpen">
+    <div class="header" (click)="onChangeDropdownState()">
+        <img [src]="property.imageUrl">
+        <span>{{property.description}}</span>
+        <ion-icon name="arrow-down" [ngClass]="{'arrow-reverse': isOpen }"></ion-icon>
+    </div>
 
-  </div>
+    <div class="info" *ngIf="isOpen">
+        <span>Rua {{property.street}}</span>
+        <span>Bairro {{property.township}}</span>
+        <span>Cidade: {{property.city}}</span>
+        <span>Quartos: {{property.rooms}}</span>
+        <span>Aluguel: {{property.pricePerUser}}</span>
+    </div>
 
 </div>
 
