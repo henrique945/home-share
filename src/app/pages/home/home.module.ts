@@ -16,10 +16,10 @@ import { HomePage } from './home.page';
                 path: '',
                 component: HomePage,
                 children: [
-                    {path: '', redirectTo: 'home'},
-                    {path: 'owner', loadChildren: () => import('./owner/owner.module').then(m => m.OwnerPageModule)},
-                    {path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserPageModule)},
-                ]
+                    { path: '', redirectTo: 'owner' },
+                    { path: 'owner', loadChildren: () => import('./owner/owner.module').then(m => m.OwnerPageModule) },
+                    { path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserPageModule) },
+                ],
             },
         ]),
     ],

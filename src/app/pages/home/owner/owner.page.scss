@@ -1,0 +1,36 @@
+.owner-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  margin-top: 1rem;
+
+  .register {
+    background-color: #c3e6c3;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    img {
+      width: 6rem;
+      margin: 0.5rem 1rem;
+    }
+
+    ion-icon {
+      position: absolute;
+      width: 2.5rem;
+      height: 2.5rem;
+      left: 6rem;
+      top: 0;
+    }
+
+    h2 {
+      margin-left: 2rem;
+      font-size: 1.2rem;
+      text-align: center;
+      font-weight: bold;
+    }
+
+  }
+}

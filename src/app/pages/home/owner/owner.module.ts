@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { OwnerPageRoutingModule } from './owner-routing.module';
 import { OwnerPage } from './owner.page';
 import { LogoComponentModule } from '../../../shared/logo/logo.module';
+import { DropdownHomeComponent } from '../../../components/dropdown-home/dropdown-home.component';
 
 @NgModule({
     imports: [
@@ -18,6 +19,7 @@ import { LogoComponentModule } from '../../../shared/logo/logo.module';
     ],
     declarations: [
         OwnerPage,
+        DropdownHomeComponent,
     ]
 })
 export class OwnerPageModule {
