@@ -4,22 +4,21 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { LoginPageRoutingModule } from './login-routing.module';
-
-import { LoginPage } from './login.page';
-import { LogoComponent } from 'src/app/shared/logo/logo.component';
+import { OwnerPageRoutingModule } from './owner-routing.module';
+import { OwnerPage } from './owner.page';
+import { LogoComponentModule } from '../../../shared/logo/logo.module';
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
         IonicModule,
-        LoginPageRoutingModule
+        OwnerPageRoutingModule,
+        LogoComponentModule,
     ],
     declarations: [
-        LoginPage,
-        LogoComponent
+        OwnerPage,
     ]
 })
-export class LoginPageModule {
+export class OwnerPageModule {
 }
