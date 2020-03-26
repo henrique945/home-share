@@ -1,14 +1,14 @@
 <app-logo></app-logo>
 
 <div class="owner-container">
-    <div class="register">
+    <div class="register" (click)="onRegisterNewPlace()">
         <img src="./assets/imgs/owner-register.png" alt="Imagem para cadastrar um imóvel">
         <ion-icon name="add-circle"></ion-icon>
         <h2>Cadastre sua Casa ou Apartamento</h2>
     </div>
     <div>
-        <ng-container *ngFor="let item of [1,2,3,4]">
-            <app-dropdown-home></app-dropdown-home>
+        <ng-container *ngFor="let item of listPropertyUser">
+            <app-dropdown-home [property]="item"></app-dropdown-home>
         </ng-container>
     </div>
 </div>

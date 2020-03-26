@@ -1,3 +1,12 @@
-<p>
-  dropdown-home works!
-</p>
+<div class="dropdown-container">
+  <div class="header" (click)="onChangeDropdownState()">
+    <img [src]="property.imageUrl">
+    <span>{{property.description}}</span>
+    <ion-icon name="arrow-down"></ion-icon>
+  </div>
+  <div class="info" *ngIf="isOpen">
+
+  </div>
+
+</div>
+
