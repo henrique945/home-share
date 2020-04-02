@@ -1,0 +1,25 @@
+:host {
+  border-top: 26px solid #007100;
+}
+
+.property-container {
+  padding: 1rem 4px 0 1rem;
+
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.3rem;
+  }
+
+  .info-inputs {
+    overflow-y: scroll;
+    height: 16rem;
+
+    .photo {
+      display: flex;
+    }
+  }
+}
