@@ -3,26 +3,42 @@
         <span>CADASTRO</span>
     </div>
 
-  <div class="info-inputs">
-    <ion-textarea placeholder="Descrição"></ion-textarea>
-    <ion-input placeholder="Rua"></ion-input>
-    <ion-input placeholder="Bairro"></ion-input>
-    <ion-input placeholder="Cidade"></ion-input>
-    <ion-item>
-      <ion-label>Quantos quartos?</ion-label>
-      <ion-select interface="popover">
-        <ion-select-option value="1">1</ion-select-option>
-        <ion-select-option value="2">2</ion-select-option>
-        <ion-select-option value="3">3</ion-select-option>
-        <ion-select-option value="4">4</ion-select-option>
-        <ion-select-option value="5">5</ion-select-option>
-      </ion-select>
-    </ion-item>
-    <ion-input placeholder="Preço por quarto" type="number"></ion-input>
-    <div class="photo">
-      <span>Tire uma foto</span>
-      <ion-icon name="camera"></ion-icon>
+    <div class="info-inputs">
+        <ion-textarea placeholder="Descrição"></ion-textarea>
+        <ion-input placeholder="Rua"></ion-input>
+        <ion-input placeholder="Bairro"></ion-input>
+        <ion-input placeholder="Cidade"></ion-input>
+        <ion-input placeholder="Preço por quarto" type="number"></ion-input>
+
+        <ion-radio-group>
+            <ion-list-header>
+                <ion-label>Quantos quartos?</ion-label>
+            </ion-list-header>
+          <div class="radio-container">
+            <div class="radio-item">
+                <ion-radio slot="start" color="success" value="1"></ion-radio>
+                <ion-label>1</ion-label>
+            </div>
+            <div class="radio-item">
+              <ion-radio slot="start" color="success" value="2"></ion-radio>
+              <ion-label>2</ion-label>
+            </div>
+            <div class="radio-item">
+              <ion-radio slot="start" color="success" value="3"></ion-radio>
+              <ion-label>3</ion-label>
+            </div>
+          </div>
+        </ion-radio-group>
+
+        <div class="photo">
+            <span>Tire uma foto</span>
+            <ion-icon name="camera"></ion-icon>
+        </div>
+
     </div>
-  </div>
+    <div class="buttons">
+        <ion-button (click)="onCancel()" color="primary">Cancelar</ion-button>
+        <ion-button>Registrar</ion-button>
+    </div>
 
 </div>
