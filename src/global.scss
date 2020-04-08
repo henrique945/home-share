@@ -26,9 +26,10 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 .modal-register-property {
-  --background: transparent;
-  --height: 96vw;
+  --background: white;
+  --height: 120vw;
   --width: 80vw;
   --box-shadow: none;
+  --border-radius: 20px;
   background-color: rgba(0, 0, 0, 0.3);
 }

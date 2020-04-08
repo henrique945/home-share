@@ -69,6 +69,7 @@ export class OwnerPage implements OnInit {
     const modal = await this.modalController.create({
       component: ModalRegisterPropertyComponent,
       cssClass: [ 'modal-register-property' ],
+      backdropDismiss: false,
     });
     return await modal.present();
   }
