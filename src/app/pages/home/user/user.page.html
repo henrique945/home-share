@@ -1,5 +1,19 @@
 <app-logo></app-logo>
 
-<ion-content>
-
-</ion-content>
+<div class="user-container">
+    <div class="search">
+        <ion-item>
+            <ion-label>Faculdade</ion-label>
+            <ion-select value="12">
+                <ion-select-option value="01">January</ion-select-option>
+                <ion-select-option value="02">February</ion-select-option>
+                <ion-select-option value="03">March</ion-select-option>
+            </ion-select>
+        </ion-item>
+    </div>
+    <div>
+        <ng-container *ngFor="let item of listProperty">
+            <app-post-home [property]="item"></app-post-home>
+        </ng-container>
+    </div>
+</div>
