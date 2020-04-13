@@ -1,53 +1,44 @@
-<ion-app>
-  <ion-header>
-    <ion-toolbar style="margin-left: 10px;">
-      <ion-buttons style="background-color: red;" slot="start">
-        <ion-button class="buttonText">Back</ion-button>
-      </ion-buttons>
-      <ion-title>Home Share | Sign-up</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<app-logo></app-logo>
 
-  <ion-content fullscreen>
+<div style="flex: 1">
     <form onsubmit="">
-      <ion-list lines="full" class="ion-margin ion-padding centerList">
-        <h6 class="ion-no-margin ion-no-padding" style="text-align: center;">Join HomeShare</h6>
-        <h1 class="ion-no-margin ion-no-padding" style="text-align: center; margin-top: 5px;">Create your account</h1>
+        <ion-list lines="full" class="ion-margin ion-padding centerList">
+            <h1 class="ion-no-margin ion-no-padding" style="text-align: center; margin-top: 5px; margin-bottom: 20px;">
+                Crie sua conta</h1>
 
-        <ion-item>
-          <ion-label position="floating">Full Name:</ion-label>
-          <ion-input required type="text" oninput="handleFirstNameValue(event)"></ion-input>
-        </ion-item>
+            <ion-item>
+                <ion-label position="floating">Nome Completo:</ion-label>
+                <ion-input required type="text"></ion-input>
+            </ion-item>
 
-        <ion-item>
-          <ion-label position="floating">Email:</ion-label>
-          <ion-input required type="text" oninput="handleEmailValue(event)"></ion-input>
-        </ion-item>
+            <ion-item>
+                <ion-label position="floating">Email:</ion-label>
+                <ion-input required type="text"></ion-input>
+            </ion-item>
 
-        <ion-item>
-          <ion-label position="floating">CPF:</ion-label>
-          <ion-input required type="text" oninput="handleCpfValue(event)"></ion-input>
-        </ion-item>
-        
-        <ion-item>
-          <ion-label position="floating">Password:</ion-label>
-          <ion-input required type="password" minlength="8" oninput="handlePasswordValue(event)"></ion-input>
-        </ion-item>
+            <ion-item>
+                <ion-label position="floating">CPF:</ion-label>
+                <ion-input required type="text"></ion-input>
+            </ion-item>
 
-        <ion-item>
-          <ion-label position="floating">Cellphone:</ion-label>
-          <ion-input required type="text" oninput="handleCellphoneValue(event)"></ion-input>
-        </ion-item>
+            <ion-item>
+                <ion-label position="floating">Senha:</ion-label>
+                <ion-input required type="password" minlength="8"></ion-input>
+            </ion-item>
 
-        <ion-item>
-          <ion-label position="floating">University:</ion-label>
-          <ion-input required type="text" oninput="handleUniversityValue(event)"></ion-input>
-        </ion-item>
+            <ion-item>
+                <ion-label position="floating">Cellphone:</ion-label>
+                <ion-input required type="text"></ion-input>
+            </ion-item>
 
-        <div class="ion-padding">
-          <ion-button expand="block" type="submit" class="ion-no-margin buttonText">Create account</ion-button>
-        </div>
-      </ion-list>
+            <ion-item>
+                <ion-label position="floating">Faculdade:</ion-label>
+                <ion-input required type="text"></ion-input>
+            </ion-item>
+
+            <div class="ion-padding">
+                <ion-button expand="block" type="submit" class="ion-no-margin buttonText">Criar Conta</ion-button>
+            </div>
+        </ion-list>
     </form>
-  </ion-content>
-</ion-app>
+</div>
