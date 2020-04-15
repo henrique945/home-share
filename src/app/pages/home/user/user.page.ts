@@ -4,7 +4,7 @@ import { PropertyProxy } from '../../../models/property.proxy';
 @Component({
   selector: 'app-user',
   templateUrl: './user.page.html',
-  styleUrls: ['./user.page.scss'],
+  styleUrls: [ './user.page.scss' ],
 })
 export class UserPage implements OnInit {
 
@@ -50,9 +50,19 @@ export class UserPage implements OnInit {
     },
   ];
 
-  constructor() { }
+  /**
+   * Variável que guarda a faculdade a ser pesquisada
+   */
+  public searchUniversity: string = '';
+
+  constructor() {
+  }
 
   ngOnInit() {
+  }
+
+  public updateUniversity(): void {
+    console.log(this.searchUniversity);
   }
 
 }

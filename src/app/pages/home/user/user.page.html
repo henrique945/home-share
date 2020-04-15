@@ -4,10 +4,10 @@
     <div class="search">
         <ion-item>
             <ion-label>Faculdade</ion-label>
-            <ion-select value="12">
-                <ion-select-option value="01">January</ion-select-option>
-                <ion-select-option value="02">February</ion-select-option>
-                <ion-select-option value="03">March</ion-select-option>
+            <ion-select value="facens" (ionChange)="updateUniversity()" [(ngModel)]="searchUniversity">
+                <ion-select-option value="facens">FACENS</ion-select-option>
+                <ion-select-option value="unip">UNIP</ion-select-option>
+                <ion-select-option value="usp">USP</ion-select-option>
             </ion-select>
         </ion-item>
     </div>

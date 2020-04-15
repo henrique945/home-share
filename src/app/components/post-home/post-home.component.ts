@@ -16,6 +16,7 @@ export class PostHomeComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
 }
