@@ -19,4 +19,8 @@ export class PostHomeComponent implements OnInit {
 
   }
 
+  public iWantThisProperty(): void {
+    console.log('Mande uma mensagem para o proprietário.');
+    console.log('Tem certeza que quer essa propriedade?');
+  }
 }

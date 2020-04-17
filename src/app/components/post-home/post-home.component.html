@@ -1,3 +1,13 @@
-<div>
-    fafa
+<div class="post-container">
+    <img [src]="property.imageUrl">
+    <p class="desc">{{property.description}}</p>
+    <div class="info-container">
+        <div class="info">
+            <p>Rua {{property.street}}, {{property.township}} - {{property.city}}</p>
+        </div>
+        <div class="info">
+            <p>Quartos: {{property.rooms}} / Aluguel: {{property.pricePerUser}}</p>
+        </div>
+    </div>
+    <ion-button color="secondary" (click)="iWantThisProperty()">Quero essa!</ion-button>
 </div>

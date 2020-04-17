@@ -1,0 +1,32 @@
+.post-container {
+  text-align: center;
+  padding: 1rem;
+
+  img {
+    height: auto;
+    width: 100%;
+  }
+
+  .desc {
+    color: green;
+    font-weight: bold;
+  }
+
+  .info-container {
+    box-shadow: 0 2px 4px 0 rgba(10, 134, 48, 0.5);
+    .info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      p {
+        padding: 0 0.3rem;
+      }
+    }
+  }
+
+  ion-button{
+    margin: 1rem 0;
+  }
+
+}
