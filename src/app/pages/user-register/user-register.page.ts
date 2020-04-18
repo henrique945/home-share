@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-user-register',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserRegisterPage implements OnInit {
 
-  constructor() { }
+  constructor(
+      private readonly navController: NavController,
+  ) { }
 
   ngOnInit() {
   }
 
+  /**
+   * Função para voltar a página de login
+   */
+  public onBackToLogin(): void{
+    console.log("oi");
+    this.navController.navigateBack('login');
+  }
 }
