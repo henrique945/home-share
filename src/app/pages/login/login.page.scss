@@ -1,6 +1,18 @@
 .login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .button-container {
     display: flex;
+    margin-top: 1rem;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+
+    ion-button {
+      margin-right: 0.5rem;
+    }
+  }
+
 }
