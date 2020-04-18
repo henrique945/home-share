@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PropertyProxy } from '../../../models/property.proxy';
+import { SwipeEvent } from 'ng-swipe';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-user',
@@ -55,7 +57,14 @@ export class UserPage implements OnInit {
    */
   public searchUniversity: string = '';
 
-  constructor() {
+  /**
+   * Variável que calcula o valor do swipe feito
+   */
+  public startSwipeValue: number = 0;
+
+  constructor(
+      private readonly navController: NavController,
+  ) {
   }
 
   ngOnInit() {
@@ -65,4 +74,27 @@ export class UserPage implements OnInit {
     console.log(this.searchUniversity);
   }
 
+  /**
+   * A função que controla o começo do swipe
+   */
+  public onSwipeMove(event: SwipeEvent) {
+    console.log(`swipe direction: ${ event.direction }`);
+    console.log(`swipe distance: ${ event.distance }`);
+    if (this.startSwipeValue === 0) {
+      this.startSwipeValue = Math.abs(event.distance);
+    }
+  }
+
+  /**
+   * Função que controla o final do swipe e se deve executar uma ação
+   */
+  public onSwipeEnd(event: SwipeEvent) {
+    console.log(`swipe direction end: ${ event.direction }`);
+    console.log(`swipe distance end: ${ event.distance }`);
+
+    if (Math.abs(event.distance) - this.startSwipeValue > 30) {
+      console.log('left page');
+      this.navController.navigateForward('/home/owner');
+    }
+  }
 }

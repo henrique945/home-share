@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PropertyProxy } from '../../../models/property.proxy';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 import { ModalRegisterPropertyComponent } from '../../../modals/modal-register-property/modal-register-property.component';
+import { SwipeEvent } from 'ng-swipe';
 
 @Component({
   selector: 'app-owner',
@@ -52,12 +53,22 @@ export class OwnerPage implements OnInit {
     },
   ];
 
+  /**
+   * Variável que calcula o valor do swipe feito
+   */
+  public startSwipeValue: number = 0;
+
   constructor(
       private readonly modalController: ModalController,
+      private readonly navController: NavController,
   ) {
   }
 
   ngOnInit() {
+  }
+
+  ionViewDidEnter() {
+    this.startSwipeValue = 0;
   }
 
   /**
@@ -72,5 +83,29 @@ export class OwnerPage implements OnInit {
       backdropDismiss: false,
     });
     return await modal.present();
+  }
+
+  /**
+   * A função que controla o começo do swipe
+   */
+  public onSwipeMove(event: SwipeEvent) {
+    console.log(`swipe direction: ${ event.direction }`);
+    console.log(`swipe distance: ${ event.distance }`);
+    if (this.startSwipeValue === 0) {
+      this.startSwipeValue = Math.abs(event.distance);
+    }
+  }
+
+  /**
+   * Função que controla o final do swipe e se deve executar uma ação
+   */
+  public onSwipeEnd(event: SwipeEvent) {
+    console.log(`swipe direction end: ${ event.direction }`);
+    console.log(`swipe distance end: ${ event.distance }`);
+
+    if (Math.abs(event.distance) - this.startSwipeValue > 30) {
+      console.log('left page');
+      this.navController.navigateForward('/home/user');
+    }
   }
 }

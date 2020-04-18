@@ -1,6 +1,8 @@
 <app-logo></app-logo>
 
-<div class="user-container">
+<div class="user-container"ngSwipe
+     (swipeMove)="onSwipeMove($event)"
+     (swipeEnd)="onSwipeEnd($event)">
     <div class="search">
         <ion-item>
             <ion-label>Faculdade</ion-label>

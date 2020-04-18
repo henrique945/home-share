@@ -1,6 +1,8 @@
 <app-logo></app-logo>
 
-<div class="owner-container">
+<div class="owner-container" ngSwipe
+     (swipeMove)="onSwipeMove($event)"
+     (swipeEnd)="onSwipeEnd($event)">
     <div class="register" (click)="onRegisterNewPlace()">
         <img src="./assets/imgs/owner-register.png" alt="Imagem para cadastrar um imóvel">
         <ion-icon name="add-circle"></ion-icon>

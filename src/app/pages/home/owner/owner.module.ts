@@ -9,6 +9,7 @@ import { OwnerPage } from './owner.page';
 import { LogoComponentModule } from '../../../shared/logo/logo.module';
 import { DropdownHomeComponent } from '../../../components/dropdown-home/dropdown-home.component';
 import { ModalRegisterPropertyComponent } from '../../../modals/modal-register-property/modal-register-property.component';
+import { SwipeModule } from 'ng-swipe';
 
 @NgModule({
     imports: [
@@ -17,6 +18,7 @@ import { ModalRegisterPropertyComponent } from '../../../modals/modal-register-p
         IonicModule,
         OwnerPageRoutingModule,
         LogoComponentModule,
+        SwipeModule,
     ],
     declarations: [
         OwnerPage,

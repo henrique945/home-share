@@ -8,6 +8,7 @@ import { UserPageRoutingModule } from './user-routing.module';
 import { UserPage } from './user.page';
 import { LogoComponentModule } from '../../../shared/logo/logo.module';
 import { PostHomeComponent } from '../../../components/post-home/post-home.component';
+import { SwipeModule } from 'ng-swipe';
 
 @NgModule({
     imports: [
@@ -16,6 +17,7 @@ import { PostHomeComponent } from '../../../components/post-home/post-home.compo
         IonicModule,
         UserPageRoutingModule,
         LogoComponentModule,
+        SwipeModule,
     ],
     declarations: [
         UserPage,
