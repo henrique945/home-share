@@ -33,3 +33,16 @@
   --border-radius: 20px;
   background-color: rgba(0, 0, 0, 0.3);
 }
+
+.buttonText {
+  font-family: "Segoe UI";
+  font-weight: bold;
+  font-size: medium;
+}
+
+.centerList {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
