@@ -92,7 +92,7 @@ export class OwnerPage implements OnInit {
     console.log(`swipe direction: ${ event.direction }`);
     console.log(`swipe distance: ${ event.distance }`);
     if (this.startSwipeValue === 0) {
-      this.startSwipeValue = Math.abs(event.distance);
+      this.startSwipeValue = event.distance;
     }
   }
 
@@ -103,7 +103,7 @@ export class OwnerPage implements OnInit {
     console.log(`swipe direction end: ${ event.direction }`);
     console.log(`swipe distance end: ${ event.distance }`);
 
-    if (Math.abs(event.distance) - this.startSwipeValue > 30) {
+    if (event.distance - this.startSwipeValue < -30 && event.direction === 'x') {
       console.log('left page');
       this.navController.navigateForward('/home/user');
     }
