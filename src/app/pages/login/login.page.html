@@ -1,15 +1,25 @@
 <app-logo></app-logo>
 
-<ion-content>
+<div class="login-container" style="flex: 1">
+    <ion-list lines="full" class="ion-margin ion-padding centerList">
+        <div style="text-align: center;">Uma imagem aki</div>
+        <h1 class="ion-no-margin ion-no-padding" style="text-align: center; margin-top: 5px; margin-bottom: 20px;">Logue na sua conta</h1>
 
-    <div class="login-container">
-        <p>Uma imagem aki</p>
-        <ion-input placeholder="usuario"></ion-input>
-        <ion-input placeholder="senha"></ion-input>
-        <div>
-            <ion-button>CRIAR CONTA</ion-button>
-            <ion-button>LOGAR</ion-button>
+        <ion-item>
+            <ion-label position="floating">Email:</ion-label>
+            <ion-input required type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">Senha:</ion-label>
+            <ion-input required type="password" minlength="8"></ion-input>
+        </ion-item>
+        
+        <div class="ion-padding" style="padding-bottom: 0;">
+            <ion-button expand="block" class="ion-no-margin buttonText">LOGAR</ion-button>
         </div>
-    </div>
-
-</ion-content>
+        <div class="ion-padding ion-no-margin" style="padding-bottom: 0px;">
+            <ion-button expand="block" class="ion-no-margin buttonText">Criar uma conta</ion-button>
+        </div>
+    </ion-list>
+</div>
