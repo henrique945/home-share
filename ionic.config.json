@@ -1,5 +1,7 @@
 {
   "name": "home-share",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

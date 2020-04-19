@@ -4,6 +4,12 @@
   justify-content: center;
   flex-direction: column;
 
+  h1 {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 20px;
+  }
+
   .button-container {
     display: flex;
     margin-top: 1rem;
