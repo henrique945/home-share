@@ -6,20 +6,16 @@ import { NavController } from '@ionic/angular';
   templateUrl: './user-register.page.html',
   styleUrls: ['./user-register.page.scss'],
 })
-export class UserRegisterPage implements OnInit {
+export class UserRegisterPage {
 
   constructor(
       private readonly navController: NavController,
   ) { }
 
-  ngOnInit() {
-  }
-
   /**
    * Função para voltar a página de login
    */
   public onBackToLogin(): void{
-    console.log("oi");
     this.navController.navigateBack('login');
   }
 }
