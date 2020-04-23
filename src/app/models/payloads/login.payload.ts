@@ -5,7 +5,7 @@ export interface LoginPayload {
   /**
    * Email do usuário
    */
-  email: string;
+  username: string;
 
   /**
    * A senha do usuário

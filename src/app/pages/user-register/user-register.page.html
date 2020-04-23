@@ -7,36 +7,36 @@
 
             <ion-item>
                 <ion-label position="floating">Nome Completo:</ion-label>
-                <ion-input required type="text"></ion-input>
+                <ion-input required type="text" [(ngModel)]="register.name" name="name"></ion-input>
             </ion-item>
 
             <ion-item>
                 <ion-label position="floating">Email:</ion-label>
-                <ion-input required type="text"></ion-input>
+                <ion-input required type="text" [(ngModel)]="register.email" name="email"></ion-input>
             </ion-item>
 
             <ion-item>
                 <ion-label position="floating">CPF:</ion-label>
-                <ion-input required type="text"></ion-input>
+                <ion-input required type="text" [(ngModel)]="register.cpf" name="cpf" maxlength="11" minlength="11"></ion-input>
             </ion-item>
 
             <ion-item>
                 <ion-label position="floating">Senha:</ion-label>
-                <ion-input required type="password" minlength="8"></ion-input>
+                <ion-input required type="password" [(ngModel)]="register.password" name="password"></ion-input>
             </ion-item>
 
             <ion-item>
                 <ion-label position="floating">Telefone:</ion-label>
-                <ion-input required type="text"></ion-input>
+                <ion-input required type="text" [(ngModel)]="register.cellphone" name="cellphone" maxlength="11"></ion-input>
             </ion-item>
 
             <ion-item>
                 <ion-label position="floating">Faculdade:</ion-label>
-                <ion-input required type="text"></ion-input>
+                <ion-input required type="text" [(ngModel)]="register.university" name="university"></ion-input>
             </ion-item>
 
             <div class="ion-padding" style="padding-bottom: 20px;">
-                <ion-button expand="block" type="submit" class="ion-no-margin buttonText">Criar Conta</ion-button>
+                <ion-button expand="block" type="submit" class="ion-no-margin buttonText" (click)="onClickToRegister()">Criar Conta</ion-button>
             </div>
             <div class="ion-padding" class="text-back" (click)="onBackToLogin()">VOLTAR</div>
         </ion-list>

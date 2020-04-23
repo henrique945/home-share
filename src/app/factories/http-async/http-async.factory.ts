@@ -38,7 +38,6 @@ export function httpAsyncFactory(
 
     let key: string;
 
-
     if (error || success === null) {
       return new HttpHeaders();
     }

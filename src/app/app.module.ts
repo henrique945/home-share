@@ -8,21 +8,34 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpAsyncService } from './services/http-async.service.ts/http-async.service';
+import { httpAsyncFactory } from './factories/http-async/http-async.factory';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HelperService } from './services/helper/helper.service';
+import { StorageService } from './services/storage/storage.service';
+import { Network } from '@ionic-native/network/ngx';
+import { IonicStorageModule } from '@ionic/Storage';
 
 @NgModule({
-    declarations: [AppComponent],
-    entryComponents: [],
-    imports: [
-        BrowserModule,
-        IonicModule.forRoot(),
-        AppRoutingModule
-    ],
-    providers: [
-        StatusBar,
-        SplashScreen,
-        {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
-    ],
-    bootstrap: [AppComponent]
+  declarations: [ AppComponent ],
+  entryComponents: [],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    IonicStorageModule.forRoot({
+      name: '__homeshare',
+    }),
+  ],
+  providers: [
+    StatusBar,
+    SplashScreen,
+    Network,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: HttpAsyncService, useFactory: httpAsyncFactory, deps: [ HttpClient, HelperService, StorageService ] },
+  ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule {
 }

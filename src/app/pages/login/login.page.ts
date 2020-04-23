@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { LoginPayload } from '../../models/payloads/login.payload';
+import { UserService } from '../../services/user/user.service';
 
 @Component({
   selector: 'app-login',
@@ -13,12 +14,13 @@ export class LoginPage implements OnInit {
    * Objeto que guarda o login do usuário
    */
   public login: LoginPayload = {
-    email: '',
+    username: '',
     password: ''
   };
 
   constructor(
       private readonly navController: NavController,
+      private readonly service: UserService,
   ) {
   }
 
@@ -29,9 +31,11 @@ export class LoginPage implements OnInit {
   /**
    * Função ao clicar no botão de Logar
    */
-  public onClickToLogin(): void {
-    if (this.login.email === 'homeshare@gmail.com' && this.login.password === '1234') {
-      this.navController.navigateForward('home');
+  public async onClickToLogin(): Promise<void> {
+    const success = await this.service.autenticate(this.login);
+
+    if (success) {
+      await this.navController.navigateForward('home');
     }
   }
 
