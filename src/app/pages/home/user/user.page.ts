@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PropertyProxy } from '../../../models/property.proxy';
+import { PropertyProxy } from '../../../models/proxies/property.proxy';
 import { SwipeEvent } from 'ng-swipe';
 import { NavController } from '@ionic/angular';
 

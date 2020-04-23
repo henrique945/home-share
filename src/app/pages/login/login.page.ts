@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { LoginPayload } from '../../models/login.payload';
+import { LoginPayload } from '../../models/payloads/login.payload';
 
 @Component({
   selector: 'app-login',

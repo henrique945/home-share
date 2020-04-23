@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PropertyProxy } from '../../models/property.proxy';
+import { PropertyProxy } from '../../models/proxies/property.proxy';
 
 @Component({
   selector: 'app-post-home',

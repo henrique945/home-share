@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PropertyProxy } from '../../../models/property.proxy';
+import { PropertyProxy } from '../../../models/proxies/property.proxy';
 import { ModalController, NavController } from '@ionic/angular';
 import { ModalRegisterPropertyComponent } from '../../../modals/modal-register-property/modal-register-property.component';
 import { SwipeEvent } from 'ng-swipe';
