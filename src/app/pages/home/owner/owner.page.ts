@@ -3,6 +3,7 @@ import { PropertyProxy } from '../../../models/proxies/property.proxy';
 import { ModalController, NavController } from '@ionic/angular';
 import { ModalRegisterPropertyComponent } from '../../../modals/modal-register-property/modal-register-property.component';
 import { SwipeEvent } from 'ng-swipe';
+import { PropertyService } from '../../../services/property/property.service';
 
 @Component({
   selector: 'app-owner',
@@ -24,8 +25,8 @@ export class OwnerPage implements OnInit {
       rooms: 2,
       pricePerUser: 500,
       isFull: false,
-      userId: 0,
-      imageUrl: './assets/imgs/room_image.jpg',
+      userOwnerId: 0,
+      listImages: ['./assets/imgs/room_image.jpg'],
     },
     {
       street: 'Almeida dos passaros2',
@@ -36,8 +37,8 @@ export class OwnerPage implements OnInit {
       rooms: 2,
       pricePerUser: 500,
       isFull: false,
-      userId: 0,
-      imageUrl: './assets/imgs/room_image.jpg',
+      userOwnerId: 0,
+      listImages: ['./assets/imgs/room_image.jpg'],
     },
     {
       street: 'Almeida dos passaros3',
@@ -48,8 +49,8 @@ export class OwnerPage implements OnInit {
       rooms: 2,
       pricePerUser: 500,
       isFull: false,
-      userId: 0,
-      imageUrl: './assets/imgs/room_image.jpg',
+      userOwnerId: 0,
+      listImages: ['./assets/imgs/room_image.jpg'],
     },
   ];
 
@@ -61,10 +62,12 @@ export class OwnerPage implements OnInit {
   constructor(
       private readonly modalController: ModalController,
       private readonly navController: NavController,
+      private readonly propertyService: PropertyService,
   ) {
   }
 
-  ngOnInit() {
+  public async ngOnInit(): Promise<void> {
+    // TODO: getAllUserIdProperties()
   }
 
   ionViewDidEnter() {

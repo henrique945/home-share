@@ -48,4 +48,18 @@ export class UserService {
     return success;
   }
 
+  /**
+   * Busca as informações do usuário logado
+   */
+  public async getMyInfo(): Promise<UserPayload | boolean> {
+    const { error, success } = await this.interactor.getMyInfo();
+
+    if (error) {
+      console.log(error.message);
+      return false;
+    }
+
+    await this.storage.setItem(environment.keys.user, success);
+  }
+
 }

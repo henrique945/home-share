@@ -4,18 +4,18 @@
     </div>
 
     <div class="info-inputs">
-        <ion-textarea placeholder="Descrição"></ion-textarea>
-        <ion-input placeholder="Rua"></ion-input>
-        <ion-input placeholder="Bairro"></ion-input>
-        <ion-input placeholder="Cidade"></ion-input>
-        <ion-input placeholder="Preço por quarto" type="number"></ion-input>
+        <ion-textarea placeholder="Descrição" [(ngModel)]="property.description"></ion-textarea>
+        <ion-input placeholder="Rua" [(ngModel)]="property.street"></ion-input>
+        <ion-input placeholder="Bairro" [(ngModel)]="property.township"></ion-input>
+        <ion-input placeholder="Cidade" [(ngModel)]="property.city"></ion-input>
+        <ion-input placeholder="Preço por quarto" type="number" [(ngModel)]="+property.pricePerUser"></ion-input>
 
         <ion-radio-group>
             <ion-list-header>
                 <ion-label>Quantos quartos?</ion-label>
             </ion-list-header>
           <div class="radio-container">
-            <div class="radio-item">
+            <div class="radio-item" [(ngModel)]="property.rooms">
                 <ion-radio slot="start" color="success" value="1"></ion-radio>
                 <ion-label>1</ion-label>
             </div>
@@ -38,7 +38,7 @@
     </div>
     <div class="buttons">
         <ion-button (click)="onCancel()" color="primary">Cancelar</ion-button>
-        <ion-button>Registrar</ion-button>
+        <ion-button (click)="onRegisterProperty()">Registrar</ion-button>
     </div>
 
 </div>

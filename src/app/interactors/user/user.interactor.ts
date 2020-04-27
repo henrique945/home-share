@@ -30,4 +30,11 @@ export class UserInteractor {
   public async postUser(payloadRegister: UserPayload): Promise<AsyncResult<unknown>> {
     return await this.http.post<unknown>(environment.routes.user, payloadRegister);
   }
+
+  /**
+   * Busca as informações do usuário logado
+   */
+  public async getMyInfo(): Promise<AsyncResult<UserPayload>> {
+    return await this.http.get<UserPayload>(environment.routes.userMe);
+  }
 }

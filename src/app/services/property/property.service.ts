@@ -10,7 +10,8 @@ export class PropertyService {
 
   constructor(
       private readonly interactor: PropertyInteractor,
-  ) { }
+  ) {
+  }
 
   /**
    * Busca todas as propriedades
@@ -24,6 +25,18 @@ export class PropertyService {
     }
 
     return success;
+  }
+
+  /**
+   * Cadastra um propriedade
+   */
+  public async postProperty(payload: PropertyProxy): Promise<unknown> {
+    const { error, success } = await this.interactor.postProperty(payload);
+
+    if (error) {
+      console.log(error.error);
+      return;
+    }
   }
 
 }

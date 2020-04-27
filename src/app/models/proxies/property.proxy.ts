@@ -45,7 +45,7 @@ export interface PropertyProxy {
     /**
      * O usuário associado a propriedade (dono)
      */
-    userId: number;
+    userOwnerId: number;
 
     /**
      * A imagem do quarto a ser alugado

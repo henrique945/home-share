@@ -20,4 +20,11 @@ export class PropertyInteractor {
     return await this.http.get<PropertyProxy[]>(environment.routes.property);
   }
 
+  /**
+   * Cadastra um propriedade
+   */
+  public async postProperty(payload: PropertyProxy): Promise<AsyncResult<unknown>> {
+    return await this.http.post<unknown>(environment.routes.property, payload);
+  }
+
 }

@@ -24,7 +24,7 @@ export class UserPage implements OnInit {
       rooms: 2,
       pricePerUser: 500,
       isFull: false,
-      userId: 0,
+      userOwnerId: 0,
       listImages: ['./assets/imgs/room_image.jpg'],
     },
     {
@@ -36,7 +36,7 @@ export class UserPage implements OnInit {
       rooms: 2,
       pricePerUser: 500,
       isFull: false,
-      userId: 0,
+      userOwnerId: 0,
       listImages: ['./assets/imgs/room_image.jpg'],
     },
     {
@@ -48,7 +48,7 @@ export class UserPage implements OnInit {
       rooms: 2,
       pricePerUser: 500,
       isFull: false,
-      userId: 0,
+      userOwnerId: 0,
       listImages: ['./assets/imgs/room_image.jpg'],
     },
   ];

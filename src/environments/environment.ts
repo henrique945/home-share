@@ -8,6 +8,7 @@ export const environment = {
   routes: {
     auth: '/auth/local',
     user: '/users',
+    userMe: '/users/me',
     property: '/property',
   },
   keys: {

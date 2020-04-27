@@ -1,6 +1,6 @@
 <div class="dropdown-container">
     <div class="header" (click)="onChangeDropdownState()">
-        <img [src]="property.imageUrl">
+        <img [src]="property.listImages[0]">
         <span>{{property.description}}</span>
         <ion-icon name="arrow-down" [ngClass]="{'arrow-reverse': isOpen }"></ion-icon>
     </div>
