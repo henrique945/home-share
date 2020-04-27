@@ -1,9 +1,11 @@
 import * as tslib_1 from "tslib";
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { PropertyService } from '../../../services/property/property.service';
 let UserPage = class UserPage {
-    constructor(navController) {
+    constructor(navController, propertyService) {
         this.navController = navController;
+        this.propertyService = propertyService;
         /**
          * Lista de propriedades
          */
@@ -55,6 +57,12 @@ let UserPage = class UserPage {
         this.startSwipeValue = 0;
     }
     ngOnInit() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const result = yield this.propertyService.getAllProperties();
+            if (result) {
+                this.listProperty = result;
+            }
+        });
     }
     updateUniversity() {
         console.log(this.searchUniversity);
@@ -87,7 +95,8 @@ UserPage = tslib_1.__decorate([
         templateUrl: './user.page.html',
         styleUrls: ['./user.page.scss'],
     }),
-    tslib_1.__metadata("design:paramtypes", [NavController])
+    tslib_1.__metadata("design:paramtypes", [NavController,
+        PropertyService])
 ], UserPage);
 export { UserPage };
 //# sourceMappingURL=user.page.js.map

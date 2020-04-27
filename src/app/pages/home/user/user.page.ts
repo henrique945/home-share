@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PropertyProxy } from '../../../models/proxies/property.proxy';
 import { SwipeEvent } from 'ng-swipe';
 import { NavController } from '@ionic/angular';
+import { PropertyService } from '../../../services/property/property.service';
 
 @Component({
   selector: 'app-user',
@@ -13,7 +14,7 @@ export class UserPage implements OnInit {
   /**
    * Lista de propriedades
    */
-  public listProperty: PropertyProxy[] = [
+  public listProperty: PropertyProxy[] | boolean = [
     {
       street: 'Almeida dos passaros',
       township: 'Vila Rica',
@@ -24,7 +25,7 @@ export class UserPage implements OnInit {
       pricePerUser: 500,
       isFull: false,
       userId: 0,
-      imageUrl: './assets/imgs/room_image.jpg',
+      listImages: ['./assets/imgs/room_image.jpg'],
     },
     {
       street: 'Almeida dos passaros2',
@@ -36,7 +37,7 @@ export class UserPage implements OnInit {
       pricePerUser: 500,
       isFull: false,
       userId: 0,
-      imageUrl: './assets/imgs/room_image.jpg',
+      listImages: ['./assets/imgs/room_image.jpg'],
     },
     {
       street: 'Almeida dos passaros3',
@@ -48,9 +49,11 @@ export class UserPage implements OnInit {
       pricePerUser: 500,
       isFull: false,
       userId: 0,
-      imageUrl: './assets/imgs/room_image.jpg',
+      listImages: ['./assets/imgs/room_image.jpg'],
     },
   ];
+
+  // https://i.pinimg.com/originals/27/e2/74/27e2744ddffaba310dec0d76b3221f04.jpg
 
   /**
    * Variável que guarda a faculdade a ser pesquisada
@@ -64,12 +67,21 @@ export class UserPage implements OnInit {
 
   constructor(
       private readonly navController: NavController,
+      private readonly propertyService: PropertyService,
   ) {
   }
 
-  ngOnInit() {
+  public async ngOnInit(): Promise<void> {
+    const result = await this.propertyService.getAllProperties();
+
+    if (result) {
+      this.listProperty = result;
+    }
   }
 
+  /**
+   * Função que detecta mudança na busca por faculdades
+   */
   public updateUniversity(): void {
     console.log(this.searchUniversity);
   }

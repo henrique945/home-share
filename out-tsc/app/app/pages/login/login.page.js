@@ -20,10 +20,12 @@ let LoginPage = class LoginPage {
      * Função ao clicar no botão de Logar
      */
     onClickToLogin() {
-        // if (this.login.email === 'homeshare@gmail.com' && this.login.password === '1234') {
-        //   this.navController.navigateForward('home');
-        // }
-        this.service.autenticate(this.login);
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const success = yield this.service.autenticate(this.login);
+            if (success) {
+                yield this.navController.navigateForward('home');
+            }
+        });
     }
     /**
      * Função ao clicar no botão de Logar

@@ -50,5 +50,5 @@ export interface PropertyProxy {
     /**
      * A imagem do quarto a ser alugado
      */
-    imageUrl: string;
+    listImages: string[];
 }
