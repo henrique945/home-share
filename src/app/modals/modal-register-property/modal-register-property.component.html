@@ -1,6 +1,6 @@
 <div class="property-container">
     <div class="title">
-        <span>CADASTRO</span>
+        <span style="margin-bottom: 5px;">CADASTRO</span>
     </div>
 
     <div class="info-inputs">
@@ -10,12 +10,12 @@
         <ion-input placeholder="Cidade" [(ngModel)]="property.city"></ion-input>
         <ion-input placeholder="Preço por quarto" type="number" [(ngModel)]="+property.pricePerUser"></ion-input>
 
-        <ion-radio-group>
+        <ion-radio-group [(ngModel)]="property.rooms">
             <ion-list-header>
                 <ion-label>Quantos quartos?</ion-label>
             </ion-list-header>
           <div class="radio-container">
-            <div class="radio-item" [(ngModel)]="property.rooms">
+            <div class="radio-item" >
                 <ion-radio slot="start" color="success" value="1"></ion-radio>
                 <ion-label>1</ion-label>
             </div>
@@ -38,7 +38,7 @@
     </div>
     <div class="buttons">
         <ion-button (click)="onCancel()" color="primary">Cancelar</ion-button>
-        <ion-button (click)="onRegisterProperty()">Registrar</ion-button>
+        <ion-button (click)="onRegisterProperty()" [disabled]="cannotAdvance()">Registrar</ion-button>
     </div>
 
 </div>

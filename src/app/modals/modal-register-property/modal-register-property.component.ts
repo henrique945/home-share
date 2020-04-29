@@ -57,6 +57,15 @@ export class ModalRegisterPropertyComponent implements OnInit {
    * Botão para registrar uma propriedade
    */
   public async onRegisterProperty(): Promise<void> {
+    this.property.rooms = +this.property.rooms;
     await this.service.postProperty(this.property);
+    this.modalController.dismiss();
+  }
+
+  public cannotAdvance(): boolean {
+    if (this.property.description.length === 0 || this.property.street.length === 0 || this.property.city.length === 0 || this.property.township.length === 0 || this.property.rooms === 0 || this.property.pricePerUser === 0) {
+      return true;
+    }
+    return false;
   }
 }
