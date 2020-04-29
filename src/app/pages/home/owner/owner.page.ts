@@ -4,6 +4,8 @@ import { ModalController, NavController } from '@ionic/angular';
 import { ModalRegisterPropertyComponent } from '../../../modals/modal-register-property/modal-register-property.component';
 import { SwipeEvent } from 'ng-swipe';
 import { PropertyService } from '../../../services/property/property.service';
+import { environment } from '../../../../environments/environment';
+import { StorageService } from '../../../services/storage/storage.service';
 
 @Component({
   selector: 'app-owner',
@@ -26,7 +28,7 @@ export class OwnerPage implements OnInit {
       pricePerUser: 500,
       isFull: false,
       userOwnerId: 0,
-      listImages: ['./assets/imgs/room_image.jpg'],
+      listImages: [ './assets/imgs/room_image.jpg' ],
     },
     {
       street: 'Almeida dos passaros2',
@@ -38,7 +40,7 @@ export class OwnerPage implements OnInit {
       pricePerUser: 500,
       isFull: false,
       userOwnerId: 0,
-      listImages: ['./assets/imgs/room_image.jpg'],
+      listImages: [ './assets/imgs/room_image.jpg' ],
     },
     {
       street: 'Almeida dos passaros3',
@@ -50,7 +52,7 @@ export class OwnerPage implements OnInit {
       pricePerUser: 500,
       isFull: false,
       userOwnerId: 0,
-      listImages: ['./assets/imgs/room_image.jpg'],
+      listImages: [ './assets/imgs/room_image.jpg' ],
     },
   ];
 
@@ -59,15 +61,37 @@ export class OwnerPage implements OnInit {
    */
   public startSwipeValue: number = 0;
 
+  /**
+   * Diz se o usuário tem propriedades cadastradas
+   */
+  public noRegisterProperty: boolean = false;
+
   constructor(
       private readonly modalController: ModalController,
       private readonly navController: NavController,
       private readonly propertyService: PropertyService,
+      private readonly storage: StorageService,
   ) {
   }
 
   public async ngOnInit(): Promise<void> {
-    // TODO: getAllUserIdProperties()
+    const { error, success } = await this.storage.getItem(environment.keys.user);
+
+    if (error) {
+      console.log(error.message);
+      return;
+    }
+
+    const result = await this.propertyService.getProportiesByUserId(success.id);
+
+    if (result) {
+      this.listPropertyUser = result;
+    }
+
+    if (this.listPropertyUser.length === 0) {
+      this.noRegisterProperty = true;
+    }
+
   }
 
   ionViewDidEnter() {
@@ -78,8 +102,6 @@ export class OwnerPage implements OnInit {
    * Função que abre uma modal para o usuário registar uma casa ou apartamento
    */
   public async onRegisterNewPlace(): Promise<void> {
-    console.log('open modal');
-
     const modal = await this.modalController.create({
       component: ModalRegisterPropertyComponent,
       cssClass: [ 'modal-register-property' ],

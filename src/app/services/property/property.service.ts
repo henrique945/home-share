@@ -34,9 +34,23 @@ export class PropertyService {
     const { error, success } = await this.interactor.postProperty(payload);
 
     if (error) {
-      console.log(error.error);
+      console.log(error.message);
       return;
     }
+  }
+
+  /**
+   * Busca uma propriedade por id do usuário
+   */
+  public async getProportiesByUserId(userId: number): Promise<PropertyProxy[]> {
+    const { error, success } = await this.interactor.getProportiesByUserId(userId);
+
+    if (error) {
+      console.log(error.message);
+      return;
+    }
+
+    return success;
   }
 
 }

@@ -27,4 +27,11 @@ export class PropertyInteractor {
     return await this.http.post<unknown>(environment.routes.property, payload);
   }
 
+  /**
+   * Busca as propriedades por id do usuário
+   */
+  public async getProportiesByUserId(userId: number): Promise<AsyncResult<PropertyProxy[]>> {
+    return await this.http.get<PropertyProxy[]>(`${environment.routes.property}/?userId=${userId}`);
+  }
+
 }

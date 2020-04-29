@@ -8,10 +8,13 @@
         <ion-icon name="add-circle"></ion-icon>
         <h2>Cadastre sua Casa ou Apartamento</h2>
     </div>
-    <div>
+    <div *ngIf="!noRegisterProperty" style="width: 100%;">
         <ng-container *ngFor="let item of listPropertyUser">
             <app-dropdown-home [property]="item"></app-dropdown-home>
         </ng-container>
+    </div>
+    <div *ngIf="noRegisterProperty" class="no-property">
+        <span>Nenhuma propriedade cadastrada!</span>
     </div>
     <div class="message-icon">
         <ion-icon name="mail-outline"></ion-icon>
