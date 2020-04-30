@@ -11,6 +11,7 @@ import { UserService } from '../../services/user/user.service';
 export class UserRegisterPage {
 
   public register: UserPayload = {
+    id: 0,
     name: '',
     email: '',
     password: '',

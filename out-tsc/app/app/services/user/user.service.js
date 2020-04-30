@@ -35,6 +35,20 @@ let UserService = class UserService {
             return success;
         });
     }
+    /**
+     * Busca as informações do usuário logado
+     */
+    getMyInfo() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const { error, success } = yield this.interactor.getMyInfo();
+            if (error) {
+                console.log(error.message);
+                return;
+            }
+            yield this.storage.setItem(environment.keys.user, success);
+            return success;
+        });
+    }
 };
 UserService = tslib_1.__decorate([
     Injectable({

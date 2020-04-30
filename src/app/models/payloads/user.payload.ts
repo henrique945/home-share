@@ -2,6 +2,12 @@
  * A interface que representa as informações enviadas para API sobre o usuário
  */
 export interface UserPayload {
+
+  /**
+   * O id do usuário
+   */
+  id: number;
+
   /**
    * O nome do usuário
    */

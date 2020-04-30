@@ -2,10 +2,15 @@ import * as tslib_1 from "tslib";
 import { Component } from '@angular/core';
 import { ModalController, NavController } from '@ionic/angular';
 import { ModalRegisterPropertyComponent } from '../../../modals/modal-register-property/modal-register-property.component';
+import { PropertyService } from '../../../services/property/property.service';
+import { environment } from '../../../../environments/environment';
+import { StorageService } from '../../../services/storage/storage.service';
 let OwnerPage = class OwnerPage {
-    constructor(modalController, navController) {
+    constructor(modalController, navController, propertyService, storage) {
         this.modalController = modalController;
         this.navController = navController;
+        this.propertyService = propertyService;
+        this.storage = storage;
         /**
          * Lista de propriedades do usuário
          */
@@ -19,8 +24,8 @@ let OwnerPage = class OwnerPage {
                 rooms: 2,
                 pricePerUser: 500,
                 isFull: false,
-                userId: 0,
-                imageUrl: './assets/imgs/room_image.jpg',
+                userOwnerId: 0,
+                listImages: ['./assets/imgs/room_image.jpg'],
             },
             {
                 street: 'Almeida dos passaros2',
@@ -31,8 +36,8 @@ let OwnerPage = class OwnerPage {
                 rooms: 2,
                 pricePerUser: 500,
                 isFull: false,
-                userId: 0,
-                imageUrl: './assets/imgs/room_image.jpg',
+                userOwnerId: 0,
+                listImages: ['./assets/imgs/room_image.jpg'],
             },
             {
                 street: 'Almeida dos passaros3',
@@ -43,16 +48,34 @@ let OwnerPage = class OwnerPage {
                 rooms: 2,
                 pricePerUser: 500,
                 isFull: false,
-                userId: 0,
-                imageUrl: './assets/imgs/room_image.jpg',
+                userOwnerId: 0,
+                listImages: ['./assets/imgs/room_image.jpg'],
             },
         ];
         /**
          * Variável que calcula o valor do swipe feito
          */
         this.startSwipeValue = 0;
+        /**
+         * Diz se o usuário tem propriedades cadastradas
+         */
+        this.noRegisterProperty = false;
     }
     ngOnInit() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const { error, success } = yield this.storage.getItem(environment.keys.user);
+            if (error) {
+                console.log(error.message);
+                return;
+            }
+            const result = yield this.propertyService.getProportiesByUserId(success.id);
+            if (result) {
+                this.listPropertyUser = result;
+            }
+            if (this.listPropertyUser.length === 0) {
+                this.noRegisterProperty = true;
+            }
+        });
     }
     ionViewDidEnter() {
         this.startSwipeValue = 0;
@@ -62,7 +85,6 @@ let OwnerPage = class OwnerPage {
      */
     onRegisterNewPlace() {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            console.log('open modal');
             const modal = yield this.modalController.create({
                 component: ModalRegisterPropertyComponent,
                 cssClass: ['modal-register-property'],
@@ -100,7 +122,9 @@ OwnerPage = tslib_1.__decorate([
         styleUrls: ['./owner.page.scss'],
     }),
     tslib_1.__metadata("design:paramtypes", [ModalController,
-        NavController])
+        NavController,
+        PropertyService,
+        StorageService])
 ], OwnerPage);
 export { OwnerPage };
 //# sourceMappingURL=owner.page.js.map

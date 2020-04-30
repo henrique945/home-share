@@ -22,6 +22,14 @@ let UserInteractor = class UserInteractor {
             return yield this.http.post(environment.routes.user, payloadRegister);
         });
     }
+    /**
+     * Busca as informações do usuário logado
+     */
+    getMyInfo() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return yield this.http.get(environment.routes.userMe);
+        });
+    }
 };
 UserInteractor = tslib_1.__decorate([
     Injectable({

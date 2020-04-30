@@ -29,5 +29,19 @@ export class TransactionService {
     await this.helper.showToast('Mensagem enviada com sucesso!\nAguarde a resposta do proprietário.', 3000);
   }
 
+  /**
+   * Busca quantas transações um usuário possui
+   */
+  public async transactionCount(userId: number): Promise<number> {
+    const { error, success } = await this.interactor.countTransactionByUserId(userId);
+
+    if (error) {
+      console.log(error.error.message);
+      return;
+    }
+
+    return success;
+  }
+
 
 }

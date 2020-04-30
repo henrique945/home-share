@@ -19,8 +19,8 @@ let UserPage = class UserPage {
                 rooms: 2,
                 pricePerUser: 500,
                 isFull: false,
-                userId: 0,
-                imageUrl: './assets/imgs/room_image.jpg',
+                userOwnerId: 0,
+                listImages: ['./assets/imgs/room_image.jpg'],
             },
             {
                 street: 'Almeida dos passaros2',
@@ -31,8 +31,8 @@ let UserPage = class UserPage {
                 rooms: 2,
                 pricePerUser: 500,
                 isFull: false,
-                userId: 0,
-                imageUrl: './assets/imgs/room_image.jpg',
+                userOwnerId: 0,
+                listImages: ['./assets/imgs/room_image.jpg'],
             },
             {
                 street: 'Almeida dos passaros3',
@@ -43,10 +43,11 @@ let UserPage = class UserPage {
                 rooms: 2,
                 pricePerUser: 500,
                 isFull: false,
-                userId: 0,
-                imageUrl: './assets/imgs/room_image.jpg',
+                userOwnerId: 0,
+                listImages: ['./assets/imgs/room_image.jpg'],
             },
         ];
+        // https://i.pinimg.com/originals/27/e2/74/27e2744ddffaba310dec0d76b3221f04.jpg
         /**
          * Variável que guarda a faculdade a ser pesquisada
          */
@@ -64,6 +65,9 @@ let UserPage = class UserPage {
             }
         });
     }
+    /**
+     * Função que detecta mudança na busca por faculdades
+     */
     updateUniversity() {
         console.log(this.searchUniversity);
     }

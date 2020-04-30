@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { PropertyInteractor } from '../../interactors/property/property.interactor';
 import { PropertyProxy } from '../../models/proxies/property.proxy';
+import { HelperService } from '../helper/helper.service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +11,7 @@ export class PropertyService {
 
   constructor(
       private readonly interactor: PropertyInteractor,
+      private readonly helper: HelperService,
   ) {
   }
 
@@ -20,7 +22,8 @@ export class PropertyService {
     const { error, success } = await this.interactor.getAllProperties();
 
     if (error) {
-      console.log(error.error);
+      console.log(error.error.message);
+      await this.helper.showToast(error.error.message, 3000);
       return false;
     }
 
@@ -34,9 +37,12 @@ export class PropertyService {
     const { error, success } = await this.interactor.postProperty(payload);
 
     if (error) {
-      console.log(error.message);
+      console.log(error.error.message);
+      await this.helper.showToast(error.error.message, 3000);
       return;
     }
+
+    await this.helper.showToast('Propriedade criada com sucesso!', 3000);
   }
 
   /**
@@ -46,7 +52,8 @@ export class PropertyService {
     const { error, success } = await this.interactor.getProportiesByUserId(userId);
 
     if (error) {
-      console.log(error.message);
+      console.log(error.error.message);
+      await this.helper.showToast(error.error.message, 3000);
       return;
     }
 

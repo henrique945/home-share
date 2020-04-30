@@ -7,7 +7,9 @@ export const environment = {
     routes: {
         auth: '/auth/local',
         user: '/users',
+        userMe: '/users/me',
         property: '/property',
+        transaction: '/transaction',
     },
     keys: {
         token: 'userToken',

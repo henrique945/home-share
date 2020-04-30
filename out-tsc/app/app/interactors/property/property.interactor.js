@@ -14,6 +14,22 @@ let PropertyInteractor = class PropertyInteractor {
             return yield this.http.get(environment.routes.property);
         });
     }
+    /**
+     * Cadastra um propriedade
+     */
+    postProperty(payload) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return yield this.http.post(environment.routes.property, payload);
+        });
+    }
+    /**
+     * Busca as propriedades por id do usuário
+     */
+    getProportiesByUserId(userId) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return yield this.http.get(`${environment.routes.property}/?userId=${userId}`);
+        });
+    }
 };
 PropertyInteractor = tslib_1.__decorate([
     Injectable({

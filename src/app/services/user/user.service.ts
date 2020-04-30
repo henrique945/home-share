@@ -51,15 +51,16 @@ export class UserService {
   /**
    * Busca as informações do usuário logado
    */
-  public async getMyInfo(): Promise<UserPayload | boolean> {
+  public async getMyInfo(): Promise<UserPayload> {
     const { error, success } = await this.interactor.getMyInfo();
 
     if (error) {
       console.log(error.message);
-      return false;
+      return;
     }
 
     await this.storage.setItem(environment.keys.user, success);
+    return success;
   }
 
 }

@@ -20,4 +20,11 @@ export class TransactionInteractor {
     return await this.http.post<unknown>(environment.routes.transaction, payload);
   }
 
+  /**
+   * Busca quantas mensagem aquele usuário tem pelo seu id
+   */
+  public async countTransactionByUserId(userId: number): Promise<AsyncResult<number>> {
+    return await this.http.get<number>(`${environment.routes.transaction}/userId/${userId}/count`);
+  }
+
 }
