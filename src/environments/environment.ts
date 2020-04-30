@@ -10,6 +10,7 @@ export const environment = {
     user: '/users',
     userMe: '/users/me',
     property: '/property',
+    transaction: '/transaction',
   },
   keys: {
     token: 'userToken',

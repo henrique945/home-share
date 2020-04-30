@@ -9,6 +9,7 @@ import { UserPage } from './user.page';
 import { LogoComponentModule } from '../../../shared/logo/logo.module';
 import { PostHomeComponent } from '../../../components/post-home/post-home.component';
 import { SwipeModule } from 'ng-swipe';
+import { ModalMessageComponent } from '../../../modals/modal-message/modal-message.component';
 
 @NgModule({
     imports: [
@@ -22,6 +23,10 @@ import { SwipeModule } from 'ng-swipe';
     declarations: [
         UserPage,
         PostHomeComponent,
+        ModalMessageComponent,
+    ],
+    entryComponents: [
+        ModalMessageComponent,
     ]
 })
 export class UserPageModule {

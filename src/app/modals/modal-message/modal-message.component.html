@@ -1,0 +1,8 @@
+<div class="container">
+  <h3 class="title">Escreva uma mensagem para o proprietário do imovel</h3>
+  <ion-textarea placeholder="Mensagem..." class="text" [(ngModel)]="transaction.message"> </ion-textarea>
+  <div class="buttons">
+    <ion-button (click)="onCancel()" color="primary">Cancelar</ion-button>
+    <ion-button (click)="onMakeTransaction()">Enviar</ion-button>
+  </div>
+</div>
