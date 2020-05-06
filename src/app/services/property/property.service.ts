@@ -18,13 +18,13 @@ export class PropertyService {
   /**
    * Busca todas as propriedades
    */
-  public async getAllProperties(): Promise<PropertyProxy[] | boolean> {
+  public async getAllProperties(): Promise<PropertyProxy[]> {
     const { error, success } = await this.interactor.getAllProperties();
 
     if (error) {
       console.log(error.error.message);
       await this.helper.showToast(error.error.message, 3000);
-      return false;
+      return;
     }
 
     return success;

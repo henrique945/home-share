@@ -14,7 +14,7 @@ export class UserPage implements OnInit {
   /**
    * Lista de propriedades
    */
-  public listProperty: PropertyProxy[] | boolean = [
+  public listProperty: PropertyProxy[] = [
     {
       street: 'Almeida dos passaros',
       township: 'Vila Rica',
@@ -25,7 +25,7 @@ export class UserPage implements OnInit {
       pricePerUser: 500,
       isFull: false,
       userOwnerId: 0,
-      listImages: ['./assets/imgs/room_image.jpg'],
+      listImages: [ './assets/imgs/room_image.jpg' ],
     },
     {
       street: 'Almeida dos passaros2',
@@ -37,7 +37,7 @@ export class UserPage implements OnInit {
       pricePerUser: 500,
       isFull: false,
       userOwnerId: 0,
-      listImages: ['./assets/imgs/room_image.jpg'],
+      listImages: [ './assets/imgs/room_image.jpg' ],
     },
     {
       street: 'Almeida dos passaros3',
@@ -49,7 +49,7 @@ export class UserPage implements OnInit {
       pricePerUser: 500,
       isFull: false,
       userOwnerId: 0,
-      listImages: ['./assets/imgs/room_image.jpg'],
+      listImages: [ './assets/imgs/room_image.jpg' ],
     },
   ];
 
@@ -65,6 +65,11 @@ export class UserPage implements OnInit {
    */
   public startSwipeValue: number = 0;
 
+  /**
+   * As cidades dos propriedades que vieram da API
+   */
+  public listCities: string[] = [];
+
   constructor(
       private readonly navController: NavController,
       private readonly propertyService: PropertyService,
@@ -74,8 +79,27 @@ export class UserPage implements OnInit {
   public async ngOnInit(): Promise<void> {
     const result = await this.propertyService.getAllProperties();
 
-    if (result) {
-      this.listProperty = result;
+    if (!result) {
+      return;
+    }
+
+    this.listProperty = result;
+
+    // separa as cidades das propriedades sem repetilas
+    let already = false;
+    for (let i = 0; i < this.listProperty.length; i++) {
+      this.listProperty[i].city = this.listProperty[i].city.toUpperCase();
+      already = false;
+
+      for (let j = 0; j < this.listCities.length; j++) {
+        if (this.listCities[j] === this.listProperty[i].city) {
+          already = true;
+        }
+      }
+
+      if (!already) {
+        this.listCities.push(this.listProperty[i].city);
+      }
     }
   }
 

@@ -1,15 +1,15 @@
 <app-logo></app-logo>
 
-<div class="user-container"ngSwipe
+<div class="user-container" ngSwipe
      (swipeMove)="onSwipeMove($event)"
      (swipeEnd)="onSwipeEnd($event)">
     <div class="search">
         <ion-item>
-            <ion-label>Faculdade</ion-label>
+            <ion-label>Cidade</ion-label>
             <ion-select value="facens" (ionChange)="updateUniversity()" [(ngModel)]="searchUniversity">
-                <ion-select-option value="facens">FACENS</ion-select-option>
-                <ion-select-option value="unip">UNIP</ion-select-option>
-                <ion-select-option value="usp">USP</ion-select-option>
+                <ng-container *ngFor="let item of listCities">
+                    <ion-select-option [value]="item">{{item}}</ion-select-option>
+                </ng-container>
             </ion-select>
         </ion-item>
     </div>

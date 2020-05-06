@@ -31,7 +31,7 @@ export class PropertyInteractor {
    * Busca as propriedades por id do usuário
    */
   public async getProportiesByUserId(userId: number): Promise<AsyncResult<PropertyProxy[]>> {
-    return await this.http.get<PropertyProxy[]>(`${environment.routes.property}/?userId=${userId}`);
+    return await this.http.get<PropertyProxy[]>(`${environment.routes.property}?userId=${userId}`);
   }
 
 }
