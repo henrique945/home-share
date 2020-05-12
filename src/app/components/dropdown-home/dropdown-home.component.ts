@@ -22,7 +22,7 @@ export class DropdownHomeComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log(this.property);
+
     }
 
     /**
