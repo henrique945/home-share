@@ -40,6 +40,7 @@ export class UserRegisterPage {
     if (success) {
       console.log('usuário criado com sucesso!');
       // TODO: Criar toast Ctrl e logar direto
+      await this.navController.navigateForward('login');
     }
   }
 }
