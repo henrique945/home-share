@@ -56,12 +56,31 @@ let UserPage = class UserPage {
          * Variável que calcula o valor do swipe feito
          */
         this.startSwipeValue = 0;
+        /**
+         * As cidades dos propriedades que vieram da API
+         */
+        this.listCities = [];
     }
     ngOnInit() {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const result = yield this.propertyService.getAllProperties();
-            if (result) {
-                this.listProperty = result;
+            if (!result) {
+                return;
+            }
+            this.listProperty = result;
+            // separa as cidades das propriedades sem repeti-las
+            let already = false;
+            for (let i = 0; i < this.listProperty.length; i++) {
+                this.listProperty[i].city = this.listProperty[i].city.toUpperCase();
+                already = false;
+                for (let j = 0; j < this.listCities.length; j++) {
+                    if (this.listCities[j] === this.listProperty[i].city) {
+                        already = true;
+                    }
+                }
+                if (!already) {
+                    this.listCities.push(this.listProperty[i].city);
+                }
             }
         });
     }

@@ -7,6 +7,7 @@ let UserRegisterPage = class UserRegisterPage {
         this.navController = navController;
         this.service = service;
         this.register = {
+            id: 0,
             name: '',
             email: '',
             password: '',
@@ -28,6 +29,7 @@ let UserRegisterPage = class UserRegisterPage {
             if (success) {
                 console.log('usuário criado com sucesso!');
                 // TODO: Criar toast Ctrl e logar direto
+                yield this.navController.navigateForward('login');
             }
         });
     }

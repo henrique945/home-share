@@ -48,7 +48,7 @@ let ModalRegisterPropertyComponent = class ModalRegisterPropertyComponent {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             this.property.rooms = +this.property.rooms;
             yield this.service.postProperty(this.property);
-            this.modalController.dismiss();
+            yield this.modalController.dismiss(true);
         });
     }
     cannotAdvance() {

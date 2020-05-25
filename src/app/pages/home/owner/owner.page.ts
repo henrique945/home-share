@@ -17,44 +17,7 @@ export class OwnerPage implements OnInit {
   /**
    * Lista de propriedades do usuário
    */
-  public listPropertyUser: PropertyProxy[] = [
-    {
-      street: 'Almeida dos passaros',
-      township: 'Vila Rica',
-      city: 'Salto',
-      description: 'Ótimo local para dormir e estar perto da faculdade',
-      university: 'FACENS',
-      rooms: 2,
-      pricePerUser: 500,
-      isFull: false,
-      userOwnerId: 0,
-      listImages: [ './assets/imgs/room_image.jpg' ],
-    },
-    {
-      street: 'Almeida dos passaros2',
-      township: 'Vila Rica',
-      city: 'Salto',
-      description: 'Ótimo local para dormir e estar perto da faculdade',
-      university: 'FACENS',
-      rooms: 2,
-      pricePerUser: 500,
-      isFull: false,
-      userOwnerId: 0,
-      listImages: [ './assets/imgs/room_image.jpg' ],
-    },
-    {
-      street: 'Almeida dos passaros3',
-      township: 'Vila Rica',
-      city: 'Salto',
-      description: 'Ótimo local para dormir e estar perto da faculdade',
-      university: 'FACENS',
-      rooms: 2,
-      pricePerUser: 500,
-      isFull: false,
-      userOwnerId: 0,
-      listImages: [ './assets/imgs/room_image.jpg' ],
-    },
-  ];
+  public listPropertyUser: PropertyProxy[] = [];
 
   /**
    * Variável que calcula o valor do swipe feito
@@ -75,6 +38,17 @@ export class OwnerPage implements OnInit {
   }
 
   public async ngOnInit(): Promise<void> {
+    await this.getPropertyByUser();
+  }
+
+  ionViewDidEnter() {
+    this.startSwipeValue = 0;
+  }
+
+  /**
+   * Função que busca as propriedades daquele usuário cadastradas na API
+   */
+  public async getPropertyByUser(): Promise<void> {
     const { error, success } = await this.storage.getItem(environment.keys.user);
 
     if (error) {
@@ -91,11 +65,6 @@ export class OwnerPage implements OnInit {
     if (this.listPropertyUser.length === 0) {
       this.noRegisterProperty = true;
     }
-
-  }
-
-  ionViewDidEnter() {
-    this.startSwipeValue = 0;
   }
 
   /**
@@ -107,6 +76,14 @@ export class OwnerPage implements OnInit {
       cssClass: [ 'modal-register-property' ],
       backdropDismiss: false,
     });
+    modal.onDidDismiss().then((data) => {
+      if (data != null) {
+        if (data.data === true) {
+          this.getPropertyByUser();
+        }
+      }
+    });
+
     return await modal.present();
   }
 

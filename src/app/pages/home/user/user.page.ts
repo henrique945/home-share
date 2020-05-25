@@ -14,44 +14,7 @@ export class UserPage implements OnInit {
   /**
    * Lista de propriedades
    */
-  public listProperty: PropertyProxy[] = [
-    {
-      street: 'Almeida dos passaros',
-      township: 'Vila Rica',
-      city: 'Salto',
-      description: 'Ótimo local para dormir e estar perto da faculdade',
-      university: 'FACENS',
-      rooms: 2,
-      pricePerUser: 500,
-      isFull: false,
-      userOwnerId: 0,
-      listImages: [ './assets/imgs/room_image.jpg' ],
-    },
-    {
-      street: 'Almeida dos passaros2',
-      township: 'Vila Rica',
-      city: 'Salto',
-      description: 'Ótimo local para dormir e estar perto da faculdade',
-      university: 'FACENS',
-      rooms: 2,
-      pricePerUser: 500,
-      isFull: false,
-      userOwnerId: 0,
-      listImages: [ './assets/imgs/room_image.jpg' ],
-    },
-    {
-      street: 'Almeida dos passaros3',
-      township: 'Vila Rica',
-      city: 'Salto',
-      description: 'Ótimo local para dormir e estar perto da faculdade',
-      university: 'FACENS',
-      rooms: 2,
-      pricePerUser: 500,
-      isFull: false,
-      userOwnerId: 0,
-      listImages: [ './assets/imgs/room_image.jpg' ],
-    },
-  ];
+  public listProperty: PropertyProxy[] = [];
 
   // https://i.pinimg.com/originals/27/e2/74/27e2744ddffaba310dec0d76b3221f04.jpg
 
@@ -85,7 +48,7 @@ export class UserPage implements OnInit {
 
     this.listProperty = result;
 
-    // separa as cidades das propriedades sem repetilas
+    // separa as cidades das propriedades sem repeti-las
     let already = false;
     for (let i = 0; i < this.listProperty.length; i++) {
       this.listProperty[i].city = this.listProperty[i].city.toUpperCase();

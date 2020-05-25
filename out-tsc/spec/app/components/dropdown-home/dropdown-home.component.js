@@ -8,7 +8,6 @@ let DropdownHomeComponent = class DropdownHomeComponent {
         this.isOpen = false;
     }
     ngOnInit() {
-        console.log(this.property);
     }
     /**
      * Função que abre e fecha o dropdown

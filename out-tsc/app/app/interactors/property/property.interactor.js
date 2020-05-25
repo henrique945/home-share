@@ -27,7 +27,7 @@ let PropertyInteractor = class PropertyInteractor {
      */
     getProportiesByUserId(userId) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            return yield this.http.get(`${environment.routes.property}/?userId=${userId}`);
+            return yield this.http.get(`${environment.routes.property}?userId=${userId}`);
         });
     }
 };

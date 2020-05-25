@@ -49,8 +49,8 @@ export class ModalRegisterPropertyComponent implements OnInit {
   /**
    * Botão de cancelar o cadastro de propriedade
    */
-  public onCancel(): void {
-    this.modalController.dismiss();
+  public async onCancel(): Promise<void> {
+    await this.modalController.dismiss(false);
   }
 
   /**
@@ -59,7 +59,8 @@ export class ModalRegisterPropertyComponent implements OnInit {
   public async onRegisterProperty(): Promise<void> {
     this.property.rooms = +this.property.rooms;
     await this.service.postProperty(this.property);
-    this.modalController.dismiss();
+
+    await this.modalController.dismiss(true);
   }
 
   public cannotAdvance(): boolean {

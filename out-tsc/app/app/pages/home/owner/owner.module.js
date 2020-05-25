@@ -9,6 +9,7 @@ import { LogoComponentModule } from '../../../shared/logo/logo.module';
 import { DropdownHomeComponent } from '../../../components/dropdown-home/dropdown-home.component';
 import { ModalRegisterPropertyComponent } from '../../../modals/modal-register-property/modal-register-property.component';
 import { SwipeModule } from 'ng-swipe';
+import { MessageComponentModule } from '../../../components/message/message.module';
 let OwnerPageModule = class OwnerPageModule {
 };
 OwnerPageModule = tslib_1.__decorate([
@@ -19,6 +20,7 @@ OwnerPageModule = tslib_1.__decorate([
             IonicModule,
             OwnerPageRoutingModule,
             LogoComponentModule,
+            MessageComponentModule,
             SwipeModule,
         ],
         declarations: [

@@ -9,6 +9,7 @@ import { LogoComponentModule } from '../../../shared/logo/logo.module';
 import { PostHomeComponent } from '../../../components/post-home/post-home.component';
 import { SwipeModule } from 'ng-swipe';
 import { ModalMessageComponent } from '../../../modals/modal-message/modal-message.component';
+import { MessageComponentModule } from '../../../components/message/message.module';
 let UserPageModule = class UserPageModule {
 };
 UserPageModule = tslib_1.__decorate([
@@ -20,6 +21,7 @@ UserPageModule = tslib_1.__decorate([
             UserPageRoutingModule,
             LogoComponentModule,
             SwipeModule,
+            MessageComponentModule,
         ],
         declarations: [
             UserPage,

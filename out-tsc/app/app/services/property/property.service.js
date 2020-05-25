@@ -16,7 +16,7 @@ let PropertyService = class PropertyService {
             if (error) {
                 console.log(error.error.message);
                 yield this.helper.showToast(error.error.message, 3000);
-                return false;
+                return;
             }
             return success;
         });

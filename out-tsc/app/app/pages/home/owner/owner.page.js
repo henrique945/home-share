@@ -63,7 +63,19 @@ let OwnerPage = class OwnerPage {
     }
     ngOnInit() {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield this.getPropertyByUser();
+        });
+    }
+    ionViewDidEnter() {
+        this.startSwipeValue = 0;
+    }
+    /**
+     * Função que busca as propriedades daquele usuário cadastradas na API
+     */
+    getPropertyByUser() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const { error, success } = yield this.storage.getItem(environment.keys.user);
+            console.log('oi');
             if (error) {
                 console.log(error.message);
                 return;
@@ -77,9 +89,6 @@ let OwnerPage = class OwnerPage {
             }
         });
     }
-    ionViewDidEnter() {
-        this.startSwipeValue = 0;
-    }
     /**
      * Função que abre uma modal para o usuário registar uma casa ou apartamento
      */
@@ -89,6 +98,11 @@ let OwnerPage = class OwnerPage {
                 component: ModalRegisterPropertyComponent,
                 cssClass: ['modal-register-property'],
                 backdropDismiss: false,
+            });
+            yield modal.onDidDismiss().then((data) => {
+                if (data != null) {
+                    console.log(data);
+                }
             });
             return yield modal.present();
         });
