@@ -33,6 +33,7 @@ export class UserService {
     }
 
     await this.storage.setItem(environment.keys.token, success.token);
+    await this.getMyInfo();
 
     return success;
   }

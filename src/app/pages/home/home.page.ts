@@ -1,20 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../services/user/user.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: [ 'home.page.scss' ],
 })
-export class HomePage implements OnInit {
+export class HomePage {
 
-  constructor(
-      private readonly userService: UserService,
-  ) {
+  constructor() {
   }
-
-  public async ngOnInit(): Promise<void> {
-    await this.userService.getMyInfo();
-  }
-
 }

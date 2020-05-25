@@ -39,6 +39,8 @@ export class UserPage implements OnInit {
   ) {
   }
 
+  // TODO: add refresher
+
   public async ngOnInit(): Promise<void> {
     const result = await this.propertyService.getAllProperties();
 
