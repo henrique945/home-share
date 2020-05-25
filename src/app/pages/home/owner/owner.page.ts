@@ -64,6 +64,8 @@ export class OwnerPage implements OnInit {
 
     if (this.listPropertyUser.length === 0) {
       this.noRegisterProperty = true;
+    } else {
+      this.noRegisterProperty = false;
     }
   }
 

@@ -5,6 +5,7 @@ import { TokenProxy } from '../../models/proxies/token.proxy';
 import { StorageService } from '../storage/storage.service';
 import { environment } from '../../../environments/environment';
 import { UserPayload } from '../../models/payloads/user.payload';
+import { HelperService } from '../helper/helper.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,6 +16,7 @@ export class UserService {
   constructor(
       private readonly interactor: UserInteractor,
       private readonly storage: StorageService,
+      private readonly helper: HelperService,
   ) {
   }
 
@@ -26,6 +28,7 @@ export class UserService {
 
     if (error) {
       console.log(error.message);
+      await this.helper.showToast(error.error.message);
       return false;
     }
 
