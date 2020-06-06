@@ -13,23 +13,23 @@ import { ModalMessageComponent } from '../../../modals/modal-message/modal-messa
 import { MessageComponentModule } from '../../../components/message/message.module';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        FormsModule,
-        IonicModule,
-        UserPageRoutingModule,
-        LogoComponentModule,
-        SwipeModule,
-        MessageComponentModule,
-    ],
-    declarations: [
-        UserPage,
-        PostHomeComponent,
-        ModalMessageComponent,
-    ],
-    entryComponents: [
-        ModalMessageComponent,
-    ]
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    UserPageRoutingModule,
+    LogoComponentModule,
+    SwipeModule,
+    MessageComponentModule,
+  ],
+  declarations: [
+    UserPage,
+    PostHomeComponent,
+    ModalMessageComponent,
+  ],
+  entryComponents: [
+    ModalMessageComponent,
+  ]
 })
 export class UserPageModule {
 }

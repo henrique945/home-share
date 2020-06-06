@@ -24,6 +24,7 @@ export class TransactionInteractor {
    * Busca quantas mensagem aquele usuário tem pelo seu id
    */
   public async countTransactionByUserId(userId: number): Promise<AsyncResult<number>> {
+    // TODO: fazer um sistema de mensagens melhor
     return await this.http.get<number>(`${environment.routes.transaction}/userId/${userId}/count`);
   }
 

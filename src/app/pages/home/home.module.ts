@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
+import { ModalMessageIconComponent } from '../../modals/modal-message-icon/modal-message-icon.component';
 
 @NgModule({
     imports: [
@@ -25,7 +26,11 @@ import { HomePage } from './home.page';
     ],
     declarations: [
         HomePage,
+        ModalMessageIconComponent,
     ],
+    entryComponents: [
+        ModalMessageIconComponent,
+    ]
 })
 export class HomePageModule {
 }

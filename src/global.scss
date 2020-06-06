@@ -43,6 +43,15 @@
   background-color: rgba(0, 0, 0, 0.3);
 }
 
+.modal-message-icon{
+  --background: white;
+  --height: 106vw;
+  --width: 81vw;
+  --box-shadow: none;
+  --border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 .buttonText {
   font-family: "Segoe UI";
   font-weight: bold;

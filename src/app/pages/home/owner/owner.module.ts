@@ -13,23 +13,23 @@ import { SwipeModule } from 'ng-swipe';
 import { MessageComponentModule } from '../../../components/message/message.module';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        FormsModule,
-        IonicModule,
-        OwnerPageRoutingModule,
-        LogoComponentModule,
-        MessageComponentModule,
-        SwipeModule,
-    ],
-    declarations: [
-        OwnerPage,
-        DropdownHomeComponent,
-        ModalRegisterPropertyComponent,
-    ],
-    entryComponents: [
-        ModalRegisterPropertyComponent,
-    ]
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    OwnerPageRoutingModule,
+    LogoComponentModule,
+    MessageComponentModule,
+    SwipeModule,
+  ],
+  declarations: [
+    OwnerPage,
+    DropdownHomeComponent,
+    ModalRegisterPropertyComponent,
+  ],
+  entryComponents: [
+    ModalRegisterPropertyComponent,
+  ]
 })
 export class OwnerPageModule {
 }
