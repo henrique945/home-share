@@ -43,5 +43,19 @@ export class TransactionService {
     return success;
   }
 
+  /**
+   * Busca as transações daquele usuário
+   */
+  public async getUserTransaction(userId: number): Promise<TransactionPayload[]> {
+    const { error, success } = await this.interactor.getUserTransaction(userId);
+
+    if (error) {
+      console.log(error.error.message);
+      return;
+    }
+
+    return success;
+  }
+
 
 }

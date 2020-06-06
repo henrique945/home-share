@@ -28,4 +28,11 @@ export class TransactionInteractor {
     return await this.http.get<number>(`${environment.routes.transaction}/userId/${userId}/count`);
   }
 
+  /**
+   * Busca as transações daquele usuário
+   */
+  public async getUserTransaction(userId: number): Promise<AsyncResult<TransactionPayload[]>> {
+    return await this.http.get<TransactionPayload[]>(`${environment.routes.transaction}/userId/${userId}`);
+  }
+
 }

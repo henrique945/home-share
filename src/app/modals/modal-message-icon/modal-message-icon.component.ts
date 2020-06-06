@@ -1,9 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
 import { TransactionPayload } from '../../models/payloads/transaction.payload';
 import { StorageService } from '../../services/storage/storage.service';
 import { environment } from '../../../environments/environment';
 import { TransactionService } from '../../services/transaction/transaction.service';
+import { UserPayload } from '../../models/payloads/user.payload';
 
 @Component({
   selector: 'app-modal-message-icon',
@@ -17,21 +17,44 @@ export class ModalMessageIconComponent implements OnInit {
    */
   public listTransaction: TransactionPayload[] = [];
 
+  /**
+   * O objeto que guarda as informações do usuário
+   */
+  public user: UserPayload = {
+    cellphone: '',
+    cpf: '',
+    email: '',
+    id: 0,
+    name: '',
+    password: '',
+    university: '',
+  };
+
+  /**
+   * Variável que guarda a resposta
+   */
+  public answer: string[] = [];
+
   constructor(
-      private readonly modalController: ModalController,
       private readonly storage: StorageService,
       private readonly transactionService: TransactionService,
   ) {
   }
 
   public async ngOnInit(): Promise<void> {
+    const { error: errorUser, success: successUser } = await this.storage.getItem<UserPayload>(environment.keys.user);
 
+    this.user = successUser;
+
+    const result = await this.transactionService.getUserTransaction(this.user.id);
+
+    this.listTransaction = result;
   }
 
   /**
-   * Botão de cancelar o cadastro de propriedade
+   * Função que manda mensagem para outro usuário
    */
-  public async onCancel(): Promise<void> {
-    await this.modalController.dismiss();
+  public sendMessage(): void {
+    this.answer = this.answer.map(item => '');
   }
 }

@@ -1,8 +1,14 @@
 <div class="container">
-  <h3 class="title">Sua Caixa de Mensagens</h3>
-  <ng-container *ngFor="let item of [1,2,3]">
-    <div class="conversation">
-      <p class="text">faihhfi fhahifahfh iaf hiia hfihafihafhiafi haf hi</p>
+    <h3 class="title">Sua Caixa de Mensagens</h3>
+    <div style="overflow-y: scroll">
+        <ng-container *ngFor="let item of listTransaction; let i = index">
+            <div class="conversation">
+                <p class="text">{{item.message}}</p>
+            </div>
+          <div class="send">
+            <input [(ngModel)]="answer[i]">
+            <ion-icon name="send" (click)="sendMessage()"></ion-icon>
+          </div>
+        </ng-container>
     </div>
-  </ng-container>
 </div>
