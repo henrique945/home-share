@@ -34,6 +34,19 @@ let TransactionService = class TransactionService {
             return success;
         });
     }
+    /**
+     * Busca as transações daquele usuário
+     */
+    getUserTransaction(userId) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const { error, success } = yield this.interactor.getUserTransaction(userId);
+            if (error) {
+                console.log(error.error.message);
+                return;
+            }
+            return success;
+        });
+    }
 };
 TransactionService = tslib_1.__decorate([
     Injectable({

@@ -39,7 +39,9 @@ let ModalRegisterPropertyComponent = class ModalRegisterPropertyComponent {
      * Botão de cancelar o cadastro de propriedade
      */
     onCancel() {
-        this.modalController.dismiss();
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield this.modalController.dismiss(false);
+        });
     }
     /**
      * Botão para registrar uma propriedade

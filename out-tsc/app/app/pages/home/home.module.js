@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HomePage } from './home.page';
+import { ModalMessageIconComponent } from '../../modals/modal-message-icon/modal-message-icon.component';
 let HomePageModule = class HomePageModule {
 };
 HomePageModule = tslib_1.__decorate([
@@ -27,7 +28,11 @@ HomePageModule = tslib_1.__decorate([
         ],
         declarations: [
             HomePage,
+            ModalMessageIconComponent,
         ],
+        entryComponents: [
+            ModalMessageIconComponent,
+        ]
     })
 ], HomePageModule);
 export { HomePageModule };

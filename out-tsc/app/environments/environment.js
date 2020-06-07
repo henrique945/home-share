@@ -3,8 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 export const environment = {
     production: false,
-    // apiBaseUrl: 'http://localhost:3010',
-    apiBaseUrl: 'https://home-share-api.herokuapp.com',
+    apiBaseUrl: 'http://localhost:3000',
+    // apiBaseUrl: 'https://home-share-api.herokuapp.com',
     routes: {
         auth: '/auth/local',
         user: '/users',

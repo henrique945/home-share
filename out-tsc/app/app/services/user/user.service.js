@@ -3,10 +3,12 @@ import { Injectable } from '@angular/core';
 import { UserInteractor } from '../../interactors/user/user.interactor';
 import { StorageService } from '../storage/storage.service';
 import { environment } from '../../../environments/environment';
+import { HelperService } from '../helper/helper.service';
 let UserService = class UserService {
-    constructor(interactor, storage) {
+    constructor(interactor, storage, helper) {
         this.interactor = interactor;
         this.storage = storage;
+        this.helper = helper;
     }
     /**
      * Autentica o usuário para logar
@@ -16,9 +18,11 @@ let UserService = class UserService {
             const { error, success } = yield this.interactor.autenticate(payloadLogin);
             if (error) {
                 console.log(error.message);
+                yield this.helper.showToast(error.error.message);
                 return false;
             }
             yield this.storage.setItem(environment.keys.token, success.token);
+            yield this.getMyInfo();
             return success;
         });
     }
@@ -55,7 +59,8 @@ UserService = tslib_1.__decorate([
         providedIn: 'root',
     }),
     tslib_1.__metadata("design:paramtypes", [UserInteractor,
-        StorageService])
+        StorageService,
+        HelperService])
 ], UserService);
 export { UserService };
 //# sourceMappingURL=user.service.js.map

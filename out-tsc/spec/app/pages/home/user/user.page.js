@@ -9,44 +9,7 @@ let UserPage = class UserPage {
         /**
          * Lista de propriedades
          */
-        this.listProperty = [
-            {
-                street: 'Almeida dos passaros',
-                township: 'Vila Rica',
-                city: 'Salto',
-                description: 'Ótimo local para dormir e estar perto da faculdade',
-                university: 'FACENS',
-                rooms: 2,
-                pricePerUser: 500,
-                isFull: false,
-                userOwnerId: 0,
-                listImages: ['./assets/imgs/room_image.jpg'],
-            },
-            {
-                street: 'Almeida dos passaros2',
-                township: 'Vila Rica',
-                city: 'Salto',
-                description: 'Ótimo local para dormir e estar perto da faculdade',
-                university: 'FACENS',
-                rooms: 2,
-                pricePerUser: 500,
-                isFull: false,
-                userOwnerId: 0,
-                listImages: ['./assets/imgs/room_image.jpg'],
-            },
-            {
-                street: 'Almeida dos passaros3',
-                township: 'Vila Rica',
-                city: 'Salto',
-                description: 'Ótimo local para dormir e estar perto da faculdade',
-                university: 'FACENS',
-                rooms: 2,
-                pricePerUser: 500,
-                isFull: false,
-                userOwnerId: 0,
-                listImages: ['./assets/imgs/room_image.jpg'],
-            },
-        ];
+        this.listProperty = [];
         // https://i.pinimg.com/originals/27/e2/74/27e2744ddffaba310dec0d76b3221f04.jpg
         /**
          * Variável que guarda a faculdade a ser pesquisada
@@ -61,6 +24,7 @@ let UserPage = class UserPage {
          */
         this.listCities = [];
     }
+    // TODO: add refresher
     ngOnInit() {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const result = yield this.propertyService.getAllProperties();

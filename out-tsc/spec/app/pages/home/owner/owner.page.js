@@ -14,44 +14,7 @@ let OwnerPage = class OwnerPage {
         /**
          * Lista de propriedades do usuário
          */
-        this.listPropertyUser = [
-            {
-                street: 'Almeida dos passaros',
-                township: 'Vila Rica',
-                city: 'Salto',
-                description: 'Ótimo local para dormir e estar perto da faculdade',
-                university: 'FACENS',
-                rooms: 2,
-                pricePerUser: 500,
-                isFull: false,
-                userOwnerId: 0,
-                listImages: ['./assets/imgs/room_image.jpg'],
-            },
-            {
-                street: 'Almeida dos passaros2',
-                township: 'Vila Rica',
-                city: 'Salto',
-                description: 'Ótimo local para dormir e estar perto da faculdade',
-                university: 'FACENS',
-                rooms: 2,
-                pricePerUser: 500,
-                isFull: false,
-                userOwnerId: 0,
-                listImages: ['./assets/imgs/room_image.jpg'],
-            },
-            {
-                street: 'Almeida dos passaros3',
-                township: 'Vila Rica',
-                city: 'Salto',
-                description: 'Ótimo local para dormir e estar perto da faculdade',
-                university: 'FACENS',
-                rooms: 2,
-                pricePerUser: 500,
-                isFull: false,
-                userOwnerId: 0,
-                listImages: ['./assets/imgs/room_image.jpg'],
-            },
-        ];
+        this.listPropertyUser = [];
         /**
          * Variável que calcula o valor do swipe feito
          */
@@ -75,7 +38,6 @@ let OwnerPage = class OwnerPage {
     getPropertyByUser() {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const { error, success } = yield this.storage.getItem(environment.keys.user);
-            console.log('oi');
             if (error) {
                 console.log(error.message);
                 return;
@@ -86,6 +48,9 @@ let OwnerPage = class OwnerPage {
             }
             if (this.listPropertyUser.length === 0) {
                 this.noRegisterProperty = true;
+            }
+            else {
+                this.noRegisterProperty = false;
             }
         });
     }
@@ -99,9 +64,11 @@ let OwnerPage = class OwnerPage {
                 cssClass: ['modal-register-property'],
                 backdropDismiss: false,
             });
-            yield modal.onDidDismiss().then((data) => {
+            modal.onDidDismiss().then((data) => {
                 if (data != null) {
-                    console.log(data);
+                    if (data.data === true) {
+                        this.getPropertyByUser();
+                    }
                 }
             });
             return yield modal.present();

@@ -19,7 +19,16 @@ let TransactionInteractor = class TransactionInteractor {
      */
     countTransactionByUserId(userId) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            // TODO: fazer um sistema de mensagens melhor
             return yield this.http.get(`${environment.routes.transaction}/userId/${userId}/count`);
+        });
+    }
+    /**
+     * Busca as transações daquele usuário
+     */
+    getUserTransaction(userId) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return yield this.http.get(`${environment.routes.transaction}/userId/${userId}`);
         });
     }
 };
