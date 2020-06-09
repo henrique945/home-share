@@ -3,6 +3,11 @@
  */
 export interface TransactionPayload {
   /**
+   * O id da transação
+   */
+  id: number;
+
+  /**
    * A mensagem da transação
    */
   message: string;

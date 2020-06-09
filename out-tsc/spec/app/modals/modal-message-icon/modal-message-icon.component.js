@@ -39,8 +39,13 @@ let ModalMessageIconComponent = class ModalMessageIconComponent {
     /**
      * Função que manda mensagem para outro usuário
      */
-    sendMessage() {
-        this.answer = this.answer.map(item => '');
+    sendMessage(payload, newMessage) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.answer = this.answer.map(item => '');
+            payload.message = newMessage;
+            const result = yield this.transactionService.updateTransaction(payload, payload.id);
+            console.log(result);
+        });
     }
 };
 ModalMessageIconComponent = tslib_1.__decorate([

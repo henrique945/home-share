@@ -54,7 +54,13 @@ export class ModalMessageIconComponent implements OnInit {
   /**
    * Função que manda mensagem para outro usuário
    */
-  public sendMessage(): void {
+  public async sendMessage(payload: TransactionPayload, newMessage: string): Promise<void> {
     this.answer = this.answer.map(item => '');
+
+    payload.message = newMessage;
+
+    const result = await this.transactionService.updateTransaction(payload, payload.id);
+
+    console.log(result);
   }
 }

@@ -47,6 +47,19 @@ let TransactionService = class TransactionService {
             return success;
         });
     }
+    /**
+     * Atualiza a transação
+     */
+    updateTransaction(payload, transactionId) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            const { error, success } = yield this.interactor.updateTransaction(payload, transactionId);
+            if (error) {
+                console.log(error.error.message);
+                return;
+            }
+            return success;
+        });
+    }
 };
 TransactionService = tslib_1.__decorate([
     Injectable({

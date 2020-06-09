@@ -57,5 +57,19 @@ export class TransactionService {
     return success;
   }
 
+  /**
+   * Atualiza a transação
+   */
+  public async updateTransaction(payload: TransactionPayload, transactionId: number): Promise<TransactionPayload> {
+    const { error, success } = await this.interactor.updateTransaction(payload, transactionId);
+
+    if (error) {
+      console.log(error.error.message);
+      return;
+    }
+
+    return success;
+  }
+
 
 }

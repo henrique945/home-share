@@ -21,6 +21,7 @@ export class ModalMessageComponent implements OnInit {
    * O objeto que guarda as informações da transação
    */
   public transaction: TransactionPayload = {
+    id: 0,
     message: '',
     propertyId: 0,
     userOwnerId: 0,

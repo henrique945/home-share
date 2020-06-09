@@ -13,6 +13,7 @@ let ModalMessageComponent = class ModalMessageComponent {
          * O objeto que guarda as informações da transação
          */
         this.transaction = {
+            id: 0,
             message: '',
             propertyId: 0,
             userOwnerId: 0,

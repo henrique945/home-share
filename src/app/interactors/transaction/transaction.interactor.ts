@@ -35,4 +35,11 @@ export class TransactionInteractor {
     return await this.http.get<TransactionPayload[]>(`${environment.routes.transaction}/userId/${userId}`);
   }
 
+  /**
+   * Atualiza uma transação
+   */
+  public async updateTransaction(payload: TransactionPayload, transactionId: number): Promise<AsyncResult<TransactionPayload>> {
+    return await this.http.put<TransactionPayload>(`${environment.routes.transaction}/${transactionId}`, payload);
+  }
+
 }

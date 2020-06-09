@@ -31,6 +31,14 @@ let TransactionInteractor = class TransactionInteractor {
             return yield this.http.get(`${environment.routes.transaction}/userId/${userId}`);
         });
     }
+    /**
+     * Atualiza uma transação
+     */
+    updateTransaction(payload, transactionId) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            return yield this.http.put(`${environment.routes.transaction}/${transactionId}`, payload);
+        });
+    }
 };
 TransactionInteractor = tslib_1.__decorate([
     Injectable({
