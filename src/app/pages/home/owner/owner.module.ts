@@ -1,3 +1,5 @@
+//#region Imports
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -11,6 +13,8 @@ import { DropdownHomeComponent } from '../../../components/dropdown-home/dropdow
 import { ModalRegisterPropertyComponent } from '../../../modals/modal-register-property/modal-register-property.component';
 import { SwipeModule } from 'ng-swipe';
 import { MessageComponentModule } from '../../../components/message/message.module';
+
+//#endregion
 
 @NgModule({
   imports: [

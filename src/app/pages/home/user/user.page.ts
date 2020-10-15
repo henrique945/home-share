@@ -1,22 +1,36 @@
+//#region Imports
+
 import { Component, OnInit } from '@angular/core';
 import { PropertyProxy } from '../../../models/proxies/property.proxy';
 import { SwipeEvent } from 'ng-swipe';
 import { NavController } from '@ionic/angular';
 import { PropertyService } from '../../../services/property/property.service';
 
+//#endregion
+
 @Component({
   selector: 'app-user',
   templateUrl: './user.page.html',
-  styleUrls: [ './user.page.scss' ],
+  styleUrls: ['./user.page.scss'],
 })
 export class UserPage implements OnInit {
+
+  //#region Constructors
+
+  constructor(
+    private readonly navController: NavController,
+    private readonly propertyService: PropertyService,
+  ) {
+  }
+
+  //#endregion
+
+  //#region Properties
 
   /**
    * Lista de propriedades
    */
   public listProperty: PropertyProxy[] = [];
-
-  // https://i.pinimg.com/originals/27/e2/74/27e2744ddffaba310dec0d76b3221f04.jpg
 
   /**
    * Variável que guarda a faculdade a ser pesquisada
@@ -33,38 +47,31 @@ export class UserPage implements OnInit {
    */
   public listCities: string[] = [];
 
-  constructor(
-      private readonly navController: NavController,
-      private readonly propertyService: PropertyService,
-  ) {
-  }
+  //#endregion
+
+  //#region Functions
 
   // TODO: add refresher
-
   public async ngOnInit(): Promise<void> {
     const result = await this.propertyService.getAllProperties();
 
-    if (!result) {
+    if (!result)
       return;
-    }
 
     this.listProperty = result;
 
     // separa as cidades das propriedades sem repeti-las
     let already = false;
-    for (let i = 0; i < this.listProperty.length; i++) {
-      this.listProperty[i].city = this.listProperty[i].city.toUpperCase();
+    for (const property of this.listProperty) {
+      property.city = property.city.toUpperCase();
       already = false;
 
-      for (let j = 0; j < this.listCities.length; j++) {
-        if (this.listCities[j] === this.listProperty[i].city) {
+      for (const city of this.listCities)
+        if (city === property.city)
           already = true;
-        }
-      }
 
-      if (!already) {
-        this.listCities.push(this.listProperty[i].city);
-      }
+      if (!already)
+        this.listCities.push(property.city);
     }
   }
 
@@ -79,8 +86,8 @@ export class UserPage implements OnInit {
    * A função que controla o começo do swipe
    */
   public onSwipeMove(event: SwipeEvent) {
-    console.log(`swipe direction: ${ event.direction }`);
-    console.log(`swipe distance: ${ event.distance }`);
+    // console.log(`swipe direction: ${ event.direction }`);
+    // console.log(`swipe distance: ${ event.distance }`);
     if (this.startSwipeValue === 0) {
       this.startSwipeValue = event.distance;
     }
@@ -90,12 +97,14 @@ export class UserPage implements OnInit {
    * Função que controla o final do swipe e se deve executar uma ação
    */
   public onSwipeEnd(event: SwipeEvent) {
-    console.log(`swipe direction end: ${ event.direction }`);
-    console.log(`swipe distance end: ${ event.distance }`);
-
+    // console.log(`swipe direction end: ${ event.direction }`);
+    // console.log(`swipe distance end: ${ event.distance }`);
     if (event.distance - this.startSwipeValue > 30 && event.direction === 'x') {
       console.log('left page');
       this.navController.navigateForward('/home/owner');
     }
   }
+
+  //#endregion
+
 }

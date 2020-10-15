@@ -1,3 +1,5 @@
+//#region Imports
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -11,6 +13,8 @@ import { PostHomeComponent } from '../../../components/post-home/post-home.compo
 import { SwipeModule } from 'ng-swipe';
 import { ModalMessageComponent } from '../../../modals/modal-message/modal-message.component';
 import { MessageComponentModule } from '../../../components/message/message.module';
+
+//#endregion
 
 @NgModule({
   imports: [

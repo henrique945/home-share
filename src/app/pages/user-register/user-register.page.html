@@ -1,44 +1,50 @@
 <app-logo></app-logo>
 
 <div style="flex: 1">
-    <form onsubmit="">
-        <ion-list lines="full" class="ion-margin ion-padding centerList">
-            <h1 class="ion-no-margin ion-no-padding" style="text-align: center; margin-top: 5px; margin-bottom: 20px;">Crie sua conta</h1>
+  <form onsubmit="">
+    <ion-list lines="full" class="ion-margin ion-padding centerList">
+      <h1 class="ion-no-margin ion-no-padding" style="text-align: center; margin-top: 5px; margin-bottom: 20px;">
+        Crie sua conta</h1>
 
-            <ion-item>
-                <ion-label position="floating">Nome Completo:</ion-label>
-                <ion-input required type="text" [(ngModel)]="register.name" name="name"></ion-input>
-            </ion-item>
+      <ion-item>
+        <ion-label position="floating">Nome Completo:</ion-label>
+        <ion-input required type="text" [(ngModel)]="register.name" name="name"></ion-input>
+      </ion-item>
 
-            <ion-item>
-                <ion-label position="floating">Email:</ion-label>
-                <ion-input required type="text" [(ngModel)]="register.email" name="email"></ion-input>
-            </ion-item>
+      <ion-item>
+        <ion-label position="floating">Email:</ion-label>
+        <ion-input required type="text" [(ngModel)]="register.email" name="email"></ion-input>
+      </ion-item>
 
-            <ion-item>
-                <ion-label position="floating">CPF:</ion-label>
-                <ion-input required type="text" [(ngModel)]="register.cpf" name="cpf" maxlength="11" minlength="11"></ion-input>
-            </ion-item>
+      <ion-item>
+        <ion-label position="floating">CPF:</ion-label>
+        <ion-input required type="text" [(ngModel)]="register.cpf" name="cpf" maxlength="11"
+                   minlength="11"></ion-input>
+      </ion-item>
 
-            <ion-item>
-                <ion-label position="floating">Senha:</ion-label>
-                <ion-input required type="password" [(ngModel)]="register.password" name="password" minlength="6"></ion-input>
-            </ion-item>
+      <ion-item>
+        <ion-label position="floating">Senha:</ion-label>
+        <ion-input required type="password" [(ngModel)]="register.password" name="password"
+                   minlength="6"></ion-input>
+      </ion-item>
 
-            <ion-item>
-                <ion-label position="floating">Telefone:</ion-label>
-                <ion-input required type="text" [(ngModel)]="register.cellphone" name="cellphone" maxlength="11"></ion-input>
-            </ion-item>
+      <ion-item>
+        <ion-label position="floating">Telefone:</ion-label>
+        <ion-input required type="text" [(ngModel)]="register.cellphone" name="cellphone"
+                   maxlength="11"></ion-input>
+      </ion-item>
 
-            <ion-item>
-                <ion-label position="floating">Faculdade:</ion-label>
-                <ion-input required type="text" [(ngModel)]="register.university" name="university"></ion-input>
-            </ion-item>
+      <ion-item>
+        <ion-label position="floating">Faculdade:</ion-label>
+        <ion-input required type="text" [(ngModel)]="register.university" name="university"></ion-input>
+      </ion-item>
 
-            <div class="ion-padding" style="padding-bottom: 20px;">
-                <ion-button expand="block" type="submit" class="ion-no-margin buttonText" (click)="onClickToRegister()">Criar Conta</ion-button>
-            </div>
-            <div class="ion-padding" class="text-back" (click)="onBackToLogin()">VOLTAR</div>
-        </ion-list>
-    </form>
+      <div class="ion-padding" style="padding-bottom: 20px;">
+        <ion-button expand="block" type="submit" class="ion-no-margin buttonText" (click)="onClickToRegister()">
+          Criar Conta
+        </ion-button>
+      </div>
+      <div class="ion-padding" class="text-back" routerLink="/login">VOLTAR</div>
+    </ion-list>
+  </form>
 </div>

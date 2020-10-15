@@ -1,3 +1,5 @@
+//#region Imports
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -15,6 +17,8 @@ import { HelperService } from './services/helper/helper.service';
 import { StorageService } from './services/storage/storage.service';
 import { Network } from '@ionic-native/network/ngx';
 import { IonicStorageModule } from '@ionic/Storage';
+
+//#endregion
 
 @NgModule({
   declarations: [ AppComponent ],

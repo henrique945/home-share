@@ -1,14 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+//#region Imports
+
+import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { LoginPayload } from '../../models/payloads/login.payload';
 import { UserService } from '../../services/user/user.service';
+
+//#endregion
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: [ './login.page.scss' ],
 })
-export class LoginPage implements OnInit {
+export class LoginPage {
+
+  //#region Constructors
+
+  constructor(
+      private readonly navController: NavController,
+      private readonly service: UserService,
+  ) {
+  }
+
+  //#endregion
+
+  //#region Properties
 
   /**
    * Objeto que guarda o login do usuário
@@ -18,15 +34,9 @@ export class LoginPage implements OnInit {
     password: ''
   };
 
-  constructor(
-      private readonly navController: NavController,
-      private readonly service: UserService,
-  ) {
-  }
+  //#endregion
 
-  ngOnInit() {
-  }
-
+  //#region Functions
 
   /**
    * Função ao clicar no botão de Logar
@@ -45,4 +55,7 @@ export class LoginPage implements OnInit {
   public onClickToRegister(): void {
     this.navController.navigateForward('register');
   }
+
+  //#endregion
+
 }

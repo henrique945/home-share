@@ -1,7 +1,11 @@
+//#region Imports
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { UserPage } from './user.page';
+
+//#endregion
 
 const routes: Routes = [
   {

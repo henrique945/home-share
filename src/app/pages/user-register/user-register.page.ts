@@ -1,7 +1,11 @@
+//#region Imports
+
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { UserPayload } from '../../models/payloads/user.payload';
 import { UserService } from '../../services/user/user.service';
+
+//#endregion
 
 @Component({
   selector: 'app-user-register',
@@ -10,6 +14,21 @@ import { UserService } from '../../services/user/user.service';
 })
 export class UserRegisterPage {
 
+  //#region Constructors
+
+  constructor(
+      private readonly navController: NavController,
+      private readonly service: UserService,
+  ) {
+  }
+
+  //#endregion
+
+  //#region Properties
+
+  /**
+   * Objeto que guarda as informações para cadastrar um usuário
+   */
   public register: UserPayload = {
     id: 0,
     name: '',
@@ -20,27 +39,22 @@ export class UserRegisterPage {
     cpf: '',
   };
 
-  constructor(
-      private readonly navController: NavController,
-      private readonly service: UserService,
-  ) {
-  }
+  //#endregion
+
+  //#region Functions
 
   /**
-   * Função para voltar a página de login
+   * Método para criar um usuário
    */
-  public onBackToLogin(): void {
-    this.navController.navigateBack('login');
-  }
-
   public async onClickToRegister(): Promise<void> {
-    console.log(this.register);
     const success = await this.service.postUser(this.register);
 
     if (success) {
-      console.log('usuário criado com sucesso!');
       // TODO: Criar toast Ctrl e logar direto
       await this.navController.navigateForward('login');
     }
   }
+
+  //#endregion
+
 }
