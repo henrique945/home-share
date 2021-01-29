@@ -63,7 +63,7 @@ export class OwnerPage implements OnInit {
    * Função que busca as propriedades daquele usuário cadastradas na API
    */
   public async getPropertyByUser(): Promise<void> {
-    const { error, success } = await this.storage.getItem(environment.keys.user);
+    const { error, success } = await this.storage.getItem<any>(environment.keys.user);
 
     if (error) {
       console.log(error.message);
